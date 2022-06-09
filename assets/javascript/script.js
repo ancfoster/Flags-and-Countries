@@ -13,16 +13,19 @@ function level1removeoption() {
     level1Options.splice((currentQuestionCorrectAnswer -1), 1);
     console.log('Round', levelRound, 'Correct Answer =', currentQuestionCorrectAnswer);
     console.log('Array length', level1Options.length);
+    console.log('Round', levelRound, 'Spliced Array', level1Options)
     // Determining the 1st incorrect answer ID for this round by randomly picking a value from the array
     currentQuestionIncorrectAnswer1 = level1Range[Math.floor(Math.random() * level1Options.length)];
     level1Options.splice((currentQuestionIncorrectAnswer1 - 1), 1);
     console.log('Round', levelRound, 'Incorrect Answer 1 =', currentQuestionIncorrectAnswer1);
     console.log('Array length', level1Options.length);
+    console.log('Round', levelRound, 'Spliced Array', level1Options)
     // Determining the 2nd incorrect answer ID for this round by randomly picking a value from the array
     currentQuestionIncorrectAnswer2 = level1Range[Math.floor(Math.random() * level1Options.length)];
     level1Options.splice((currentQuestionIncorrectAnswer2 - 1), 1);
     console.log('Round', levelRound, 'Incorrect Answer 2 =', currentQuestionIncorrectAnswer2);
     console.log('Array length', level1Options.length);
+    console.log('Round', levelRound, 'Spliced Array', level1Options)
     levelRound++
 }
 // Each level conists of 5 questions - executing the level 1 remove function 5 times. 
