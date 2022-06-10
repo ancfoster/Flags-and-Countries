@@ -1,15 +1,17 @@
 html, body {
     height: 100%;
+    padding: 0;
+    margin: 0;
 }  
 body {
-    font-family: Arial, sans-serif;
     box-sizing: border-box;
 }  
-#home {
+#gradient-bg {
     text-align: center;
     margin: 0 auto;
     width: 100%;
-    background: lightblue;
+    background: rgb(41,2,56);
+    background: linear-gradient(0deg, rgba(41,2,56,1) 0%, rgba(5,23,49,1) 100%);
     min-height: 100%;
-    padding: 0 20px;
+    z-index: -1;
 }
