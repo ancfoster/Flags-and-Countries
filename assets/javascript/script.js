@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 //Global Scope Variables
 let currentQuestion = 1;
 let currentLevel = null;
@@ -21,28 +22,40 @@ function initialiseLevel() {
     const level8Range = [155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176];
     const level9Range = [177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198];
     const level10Range = [199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220];
+    levelSet = 0;
 
     switch(currentLevel) {
         case 1:
             levelOptions = level1Range;
+            currentQuestion = 1;
+            break;
         case 2:
             levelOptions = level2Range;
+            break;
         case 3:
             levelOptions = level3Range;
+            break;
         case 4:
-            levelOptions = level4Range
+            levelOptions = level4Range;
+            break;
         case 5:
             levelOptions = level5Range;
+            break;
         case 6:
             levelOptions = level6Range;
+            break;
         case 7:
             levelOptions = level7Range;
+            break;
         case 8:
             levelOptions = level8Range;
+            break;
         case 9:
-            levelOptions = level9Range
+            levelOptions = level9Range;
+            break;
         case 10:
             levelOptions = level10Range;
+            break;
         default:
             console.log('An error has occured when initialising the level');
     }
@@ -64,7 +77,7 @@ function generateQuestionIDs() {
     levelSet++;
     console.log('Array items', levelOptions.length);
     console.log('Level round', levelSet);
-    console.log(levelOptions)
+    console.log(levelOptions);
 }
 
 currentLevel = 5;
