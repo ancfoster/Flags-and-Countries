@@ -12,10 +12,12 @@ Flags & Countries is an interactive responsive geography quiz game.
 #### Game Design
 ##### Game elements
 -	200 countries/territories in the game list
--	To win a user must answer 50 questions correctly
+-	To win a user must answer 70 questions correctly
 -	If they answer a question incorrectly, they lose and must start over.
--	There are 10 questions in each level and 5 levels
+-	There are 7 questions in each level and 10 levels
 -	There are two question formats and these alternate
+	- What is the flag of [country name]? (User then picks one of 3 flag pictures)
+	- This is the flag of . . .   (User then picks a country name from a list of three countries) 
 -	The levels get progressively harder.
 -	Maximum score of 50 with 1 point per correct answer
 - 	The game is multiple-choice with 3 options per round.
@@ -24,7 +26,12 @@ Flags & Countries is an interactive responsive geography quiz game.
 ### Colour Scheme
     explain your colors, etc.... perhaps use coolors.co? to generate an image palette
 ### Typography
-    explain any fonts and icon libraries used, like font-awesome and google fonts
+
+Adobe Fonts:
+- [Objektiv](https://fonts.adobe.com/fonts/objektiv) is the fotn used for the H1 and H2 tags
+
+- [Elza](https://fonts.adobe.com/fonts/elza) is used for all other elements containing text. I picked it for its modern minimalism and readability
+
 ### Wireframes
      include screenshots of your wireframes (consider the markdown table format)
 ## Features
@@ -42,10 +49,14 @@ Flags & Countries is an interactive responsive geography quiz game.
 ### Local Deployment
     document all the necessary steps someone else can take in order to make a local copy of your project, like cloning, forking, etc.
 ## Credits
-    explain about any particular places you took inspiration from
+
 ### Content
-    list out any URLs or links where you might've borrowed a snippet of code, or element
+
+- I used an interactive tool by [Xah Lee](http://xahlee.info/js/svg_circle_arc.html) to learn how to draw an ARC using SVG. I used this for the level progress indicator.
+
 ### Media
-    list out any URLs for images/videos/audios you've borrowed from online (Markdown Table works best here!)
+
+[Speaker Icons](https://iconmonstr.com/sound-thin-svg/)
+
 ### Acknowledgements
     list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
