@@ -15,3 +15,47 @@ body {
     min-height: 100%;
     z-index: -1;
 }
+#control-bar {
+    width: 100%;
+    max-width: 780px;
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 44px;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 0 16px;
+    align-items: center;
+}
+#mute-container {
+    width: 33%;
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+}
+#level-status-container {
+    width: 33%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+#score-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-end;
+    width: 33%;
+}
+#mute-btn {
+    width: 32px;
+    height: 32px;
+    background-image: url("../images/sound_enabled.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
