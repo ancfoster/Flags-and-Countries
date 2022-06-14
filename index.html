@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dvd5gfz.css">
     <title>Document</title>
     <meta name="description" content="Interactive quiz game where you can test your knowledge of countries and their flags.">
     <meta name="keywords" content="flags, flag, countries, quiz, geography, game, national flags">
@@ -13,13 +14,19 @@
 <div id="control-bar">
     <div id="mute-container"><div id="mute-btn"></div></div>
     <div id="level-status-container">
-        <svg width="44px" height="44px">
-            <circle cx="22px" cy="22px" r="21px" stroke="#ffffff40" stroke-width="2" fill="transparent" />
-            <circle cx="22px" cy="22px" r="17px" stroke="#ffffff" stroke-width="2" fill="transparent" />
-
-        </svg>
+        <div id="level-label">Level</div>
+        <div id="level-ring-container">
+            <div id="score-top">1</div>
+            <svg width="52px" height="52px">
+                <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
+                <circle id="c2" cx="26px" cy="26px" r="24px" stroke="#ffffff" stroke-width="4" fill="transparent" />
+            </svg>
+        </div>
     </div>
-    <div id="score-container"><img src="assets/images/score_icon.svg" height="32px" width="auto" alt="Score Symbol"></div>
+    <div id="score-container">
+        <span id="score-display">70</span>
+        <img src="assets/images/score_icon.svg" alt="Score Symbol">
+    </div>
 </div>
  <div id="gradient-bg">
  </div>
