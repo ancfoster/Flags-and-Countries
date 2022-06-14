@@ -66,14 +66,15 @@ function initialiseLevel() {
 
 // This function picks three question IDs out of the level array, 1 correct answer and 2 incorrect answers. It removes these question from the array ensuring they do not reappear again during the game.
 function generateQuestionIDs() {
+    //Correct answer
     currentAnswerIndex = Math.floor(Math.random() * levelOptions.length);
     currentCorrectAnswerID = levelOptions[currentAnswerIndex];
     levelOptions.splice(currentAnswerIndex, 1);
-
+    // 1st incorrect answer
     currentAnswerIndex = Math.floor(Math.random() * levelOptions.length);
     currentIncorrectAnswer1ID = levelOptions[currentAnswerIndex];
     levelOptions.splice(currentAnswerIndex, 1);
-
+    // 2nd incorrect answer
     currentAnswerIndex = Math.floor(Math.random() * levelOptions.length);
     currentIncorrectAnswer2ID = levelOptions[currentAnswerIndex];
     levelOptions.splice(currentAnswerIndex, 1);
@@ -99,6 +100,7 @@ function soundStatus() {
         soundEnabled = !soundEnabled;
     }
 }
+    //These functions play a sound when called
 function correctAnswerSound() {
     if (soundEnabled == true) {
         let sound = new Audio('assets/sounds/correct.mp3');
@@ -117,3 +119,17 @@ function levelUpSound() {
         sound.play();
     }
 }
+
+// This controls the status of the level progress ring. Arguements 0-100
+function updateProgressRing(percent) {
+    let progressRing = document.getElementById("level-progress-ring");
+    const progressRingCircumference = 24 * 2 * Math.PI;
+    progressRing.style.strokeDasharray = `${progressRingCircumference} ${progressRingCircumference}`;
+    progressRing.style.strokeDashoffset = `${progressRingCircumference}`;
+    const offset = progressRingCircumference - percent / 100 * progressRingCircumference ;
+    progressRing.style.strokeDashoffset = offset;
+}
+
+updateProgressRing(15);
+
+

@@ -5,16 +5,17 @@ html, body {
 }  
 body {
     box-sizing: border-box;
+    font-family: 'Elza', 'Arial', sans-serif;
 }  
 #gradient-bg {
     text-align: center;
     margin: 0 auto;
     width: 100%;
-    background: rgb(41,2,56);
-    background: linear-gradient(0deg, rgba(41,2,56,1) 0%, rgba(5,23,49,1) 100%);
+    background: linear-gradient(0deg, rgb(40, 2, 55) 0%, rgba(5,23,49,1) 100%);
     min-height: 100%;
     z-index: -1;
 }
+/* Control bar styles */
 #control-bar {
     width: 100%;
     max-width: 780px;
@@ -23,8 +24,8 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: 44px;
-    margin-top: 16px;
+    height: 52px;
+    margin-top: 32px;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
@@ -32,30 +33,99 @@ body {
     align-items: center;
 }
 #mute-container {
-    width: 33%;
+    width: 30%;
     display: flex;
     align-content: center;
     justify-content: flex-start;
 }
+#mute-btn:hover {
+    transition: 0.4s;
+    transform: scale(1.4);
+}
 #level-status-container {
-    width: 33%;
+    width: 40%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: row;
+}
+#level-ring-container {
+    width: 52px;
+    height: 52px;
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    position: relative;
+    flex-direction: row;
+}
+#level-ring-background {
+    stroke-width: 4;
+    stroke: #ffffff36;
+    fill: transparent;
+}
+#level-progress-ring {
+    stroke: #ffffff;
+    stroke-width: 4;
+    fill: transparent;
+    transition: 0.35s stroke-dashoffset;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    stroke-dasharray: 150.796, 150.796;
+    stroke-dashoffset: 150.796;
+}
+#level-label {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 400;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+#score-top {
+    width: 100%;
+    height: 52px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 400;
 }
 #score-container {
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: flex-end;
-    width: 33%;
+    width: 30%;
+}
+#score-display {
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    margin-right: 8px;
+}
+#score-container img {
+    width: auto;
+    height: 40px;
 }
 #mute-btn {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     background-image: url("../images/sound_enabled.png");
     background-repeat: no-repeat;
     background-size: cover;
+    transform: scale(1.0);
+    transition: 0.4s;
+    cursor: pointer;
 }
+
+
 
