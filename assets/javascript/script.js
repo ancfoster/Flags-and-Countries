@@ -87,8 +87,9 @@ currentLevel = 5;
 initialiseLevel();
 generateQuestionIDs();
 
+// Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
-
+    // This function determines whether the player has enabled or disabled sounds
 function soundStatus() {
     if (soundEnabled == true) {
         document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_disabled.png")';
@@ -96,5 +97,23 @@ function soundStatus() {
     }   else { 
         document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_enabled.png")';
         soundEnabled = !soundEnabled;
+    }
+}
+function correctAnswerSound() {
+    if (soundEnabled == true) {
+        let sound = new Audio('assets/sounds/correct.mp3');
+        sound.play();
+    }
+}
+function incorrectAnswerSound() {
+    if (soundEnabled == true) {
+        let sound = new Audio('assets/sounds/incorrect_gameover.mp3');
+        sound.play();
+    }
+}
+function levelUpSound() {
+    if (soundEnabled == true) {
+        let sound = new Audio('assets/sounds/level_up.mp3');
+        sound.play();
     }
 }
