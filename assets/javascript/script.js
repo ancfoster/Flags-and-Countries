@@ -9,6 +9,9 @@ let currentCorrectAnswerID = 0;
 let currentIncorrectAnswer1ID = 0;
 let currentIncorrectAnswer2ID = 0;
 let levelOptions = [];
+let answerSelected = false;
+let soundEnabled = true;
+
 
 function initialiseLevel() {
     // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions
@@ -83,3 +86,15 @@ function generateQuestionIDs() {
 currentLevel = 5;
 initialiseLevel();
 generateQuestionIDs();
+
+document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
+
+function soundStatus() {
+    if (soundEnabled == true) {
+        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_disabled.png")';
+        soundEnabled = !soundEnabled;
+    }   else { 
+        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_enabled.png")';
+        soundEnabled = !soundEnabled;
+    }
+}
