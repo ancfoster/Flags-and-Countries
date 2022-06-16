@@ -1,0 +1,253 @@
+{
+    "asset": {
+        "copyright": "2020 (c) Adobe Inc.",
+        "generator": "Adobe Dimension - 3de52ae4ccc0c25be48106335282fae5a6a58dee",
+        "version": "2.0"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 11562,
+            "type": "VEC3",
+            "max": [
+                0.05090073496103287,
+                0.0513269267976284,
+                0.051151860505342486
+            ],
+            "min": [
+                -0.05151674151420593,
+                -0.05160649120807648,
+                -0.05155245214700699
+            ]
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 11562,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 11562,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 9894,
+            "type": "SCALAR",
+            "max": [
+                11174.0
+            ],
+            "min": [
+                0.0
+            ]
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5125,
+            "count": 774,
+            "type": "SCALAR",
+            "max": [
+                11561.0
+            ],
+            "min": [
+                10592.0
+            ]
+        },
+        {
+            "bufferView": 5,
+            "componentType": 5125,
+            "count": 894,
+            "type": "SCALAR",
+            "max": [
+                11129.0
+            ],
+            "min": [
+                494.0
+            ]
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 138744,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 138744,
+            "byteLength": 138744,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 277488,
+            "byteLength": 92496,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 369984,
+            "byteLength": 39576,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 409560,
+            "byteLength": 3096,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 412656,
+            "byteLength": 3576,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 416232,
+            "uri": "globe_binary.bin"
+        }
+    ],
+    "cameras": [
+        {
+            "perspective": {
+                "znear": 0.000010000000656873454,
+                "yfov": 0.6024156808853149,
+                "zfar": 2.0,
+                "aspectRatio": 1.3333333730697632
+            },
+            "type": "perspective",
+            "name": "render_camera"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0,
+                    0.723055362701416,
+                    0.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.6435942649841309
+            },
+            "name": "continents",
+            "doubleSided": true
+        },
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0,
+                    0.48514997959136965,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.7071067690849304
+            },
+            "name": "ocenas",
+            "doubleSided": true
+        },
+        {
+            "pbrMetallicRoughness": {
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.7071067690849304
+            },
+            "name": "Artic",
+            "doubleSided": true
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Cartoon low poly Earth 1",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                },
+                {
+                    "attributes": {
+                        "TEXCOORD_0": 2,
+                        "NORMAL": 1,
+                        "POSITION": 0
+                    },
+                    "indices": 4,
+                    "material": 1
+                },
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 5,
+                    "material": 2
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "translation": [
+                -0.4582427144050598,
+                0.29999998211860659,
+                0.15196509659290315
+            ],
+            "rotation": [
+                -0.12059047073125839,
+                0.379409521818161,
+                0.04995020851492882,
+                0.9159756302833557
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "camera": 0,
+            "name": "render_camera_n3d"
+        },
+        {
+            "translation": [
+                -0.0013803100446239114,
+                0.1304202526807785,
+                0.00012771606270689517
+            ],
+            "rotation": [
+                0.07514070719480515,
+                0.7031030058860779,
+                0.7031030058860779,
+                -0.07514070719480515
+            ],
+            "scale": [
+                2.529855489730835,
+                2.529855489730835,
+                2.529855489730835
+            ],
+            "mesh": 0,
+            "name": "Cartoon low poly Earth 1"
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1
+            ],
+            "name": "scene"
+        }
+    ],
+    "scene": 0
+}
