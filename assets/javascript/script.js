@@ -1,7 +1,7 @@
 /* jshint esversion: 11 */
 //Global Scope Variables
 let currentQuestion = 1;
-let currentLevel = null;
+let currentLevel = 1;
 let questionType = 1;
 let levelSet = 0;
 let currentAnswerIndex = 0;
@@ -135,6 +135,8 @@ function levelUp() {
     </div>
     `;
     currentLevel++;
+    let levelTop = document.getElementById('level-top');
+    levelTop.innerHTML = currentLevel;
     updateProgressRing(1);
     let levelupContainer = document.getElementById('level-up-container');
     levelUpSound();
@@ -143,4 +145,17 @@ function levelUp() {
         outerContainer.innerHTML = "";
     });
 }
-levelUp();
+function gameOver() {
+    outerContainer.innerHTML = `
+    <div id="game-over-cont">
+    <span id="game-over-text">Game Over!</span>
+    <span id="game-over-scored">You scored: 28 points</span>
+    <button type="button" id="game-over-play-again">Play Again</button>
+    <button type="button" id="game-over-main-menu">Main Menu</button>
+    </div>
+    `;
+    let gameOverCont = document.getElementById('game-over-cont');
+    gameOverCont.style.animation = "gameOver 0.4s linear";
+
+}
+gameOver();
