@@ -11,7 +11,8 @@ let currentIncorrectAnswer2ID = 0;
 let levelOptions = [];
 let answerSelected = false;
 let soundEnabled = true;
-
+let playerName = 'player001'
+let outerContainer = document.getElementById('outer-container');
 
 function initialiseLevel() {
     // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions
@@ -84,10 +85,6 @@ function generateQuestionIDs() {
     console.log(levelOptions);
 }
 
-currentLevel = 5;
-initialiseLevel();
-generateQuestionIDs();
-
 // Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
     // This function determines whether the player has enabled or disabled sounds
@@ -129,7 +126,21 @@ function updateProgressRing(percent) {
     const offset = progressRingCircumference - percent / 100 * progressRingCircumference ;
     progressRing.style.strokeDashoffset = offset;
 }
-
-updateProgressRing(15);
-
-
+// Level up - creates div, plays animation, updates variables, deletes div on animaion completition 
+function levelUp() {
+    outerContainer.innerHTML = `
+    <div id="level-up-container">
+        <img id="level-up-spinner" src="assets/images/levelup_spinner.svg">
+        <span id="level-up-text">Level Up</span>
+    </div>
+    `;
+    currentLevel++;
+    updateProgressRing(1);
+    let levelupContainer = document.getElementById('level-up-container');
+    levelUpSound();
+    levelupContainer.style.animation = "levelup 2s linear";
+    levelupContainer.addEventListener('animationend', () => {
+        outerContainer.innerHTML = "";
+    });
+}
+levelUp();
