@@ -11,7 +11,7 @@ Flags & Countries is an interactive responsive geography quiz game.
 
 #### Game Design
 ##### Game elements
--	200 countries/territories in the game list
+-	220 countries/territories in the game list
 -	To win a user must answer 70 questions correctly
 -	If they answer a question incorrectly, they lose and must start over.
 -	There are 7 questions in each level and 10 levels
@@ -19,8 +19,8 @@ Flags & Countries is an interactive responsive geography quiz game.
 	- What is the flag of [country name]? (User then picks one of 3 flag pictures)
 	- This is the flag of . . .   (User then picks a country name from a list of three countries) 
 -	The levels get progressively harder.
--	Maximum score of 50 with 1 point per correct answer
-- 	The game is multiple-choice with 3 options per round.
+-	Maximum score of 70 with 1 point per correct answer
+- 	The game is multiple-choice with 3 options per question.
 
 
 ### Colour Scheme
@@ -39,9 +39,26 @@ Adobe Fonts:
 ### Existing Features
     list out all of your project's features, and make sure to include a screenshot of each!!
 ### Features Left to Implement
-    have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
+- Autosave and saving game progress. If a user leaves the website in the middle of a game their progress will have been saved to local storage.
+- Global scoreboard that ranks users on how many questions they answered and how quickly.
 ## Technologies Used
     explain various tech used, such as HTML, CSS, Gitpod/VSCode, GitHub, Git, etc. - add a link to each respective site as well, if possible
+## Tools used
+- For writing code I used [Visual Studio Code](https://code.visualstudio.com/) which I also for Git commands and pushing to GitHub
+
+- [GitHub](https://github.com]) was used for hosting the online repository, it provides an online version of Git, a source code management tool.
+
+- Adobe Illustrator was used for vector graphic design, like for the logo, coral reef list bullets and map.
+
+- [AdobeXD](https://www.adobe.com/uk/products/xd.html) was used to create high fidelity mockups before I started coding. 
+
+- [Markdown Editor](https://apps.apple.com/ie/app/markdown-editor/id1458220908?mt=12) by Satoshi Iwaki was used for editing .MD files.
+
+	- *In both of my .MD files I have used the HTML image tag in certain situtions. The Markdown syntax does not support [specifiying image size](https://www.markdownguide.org/hacks/#image-size) width which was necessary for readability of these doucments.*
+
+- [AutoPrefixer](https://autoprefixer.github.io/) was used to add browser specifc prefixes.
+
+
 ## Testing
     "For all testing, please refer to the [TESTING.md](TESTING.md) file."
 ## Deployment
@@ -50,13 +67,18 @@ Adobe Fonts:
     document all the necessary steps someone else can take in order to make a local copy of your project, like cloning, forking, etc.
 ## Credits
 
-### Content
+### Technical documentation & tutorials
 
-- I used an interactive tool by [Xah Lee](http://xahlee.info/js/svg_circle_arc.html) to learn how to draw an ARC using SVG. I used this for the level progress indicator.
+- A guide on animating a SVG path using stroke dash array and dash-offset by [Jake Archibold](https://jakearchibald.com/2013/animated-line-drawing-svg/) this formed the basis of the level progress ring
+- MDN documentaton on how to use the [animationend](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event) event
 
 ### Media
 
 [Speaker Icons](https://iconmonstr.com/sound-thin-svg/)
+
+#### Sound Effects
+- Correct answer & level up sound by [BlackDragonFX](https://audiojungle.net/item/the-correct/36866229)
+- Game over / incorrect answer sound by [Shikkon](https://audiojungle.net/item/incorrect-answer/2024374)
 
 ### Acknowledgements
     list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
