@@ -1,19 +1,49 @@
 /* jshint esversion: 11 */
 //Global Scope Variables
+let body = document.body;
 let currentQuestion = 1;
 let currentLevel = 1;
-let questionType = 1;
-let levelSet = 0;
+let questionType = null;
+let levelQuestion = null;
 let currentAnswerIndex = 0;
 let currentCorrectAnswerID = 0;
 let currentIncorrectAnswer1ID = 0;
 let currentIncorrectAnswer2ID = 0;
+let incorrectAnswer1Position = null;
+let incorrectAnswer2Position = null;
+let correctAnswerPosition = null;
 let levelOptions = [];
 let answerSelected = false;
 let soundEnabled = true;
 let playerName = 'player001'
 let outerContainer = document.getElementById('outer-container');
 
+body.addEventListener("load", mainMenuLoad());
+function mainMenuLoad() {
+    outerContainer.innerHTML = `
+    <div id="home-screen">
+       <h1>Flags &<br>Countries</h1>
+       <h2>The Geography Game</h2>
+       <img src="assets/images/globe.png">
+       <div id="main-menu-buttons-flex">
+        <button type="button" id="main-play">Play</button>
+        <button type="button" id="main-scores">Scores</button>
+        <button type="button" id="main-how-to-play">How to Play</button>
+       </div>
+   </div> `;
+   document.getElementById("main-play").addEventListener("click", newGame);
+}
+function newGame() {
+    outerContainer.innerHTML = "";
+    currentLevel = 1;
+    currentQuestion = 1;
+    updateProgressRing(1);
+    //initialiseLevel;
+    //initialiseQuestion;
+    questionType = 1;
+    document.getElementById('score-container').style.visibility = "visible";
+    document.getElementById('level-status-container').style.visibility = "visible";
+}
 function initialiseLevel() {
     // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions
     const level1Range = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
@@ -26,12 +56,11 @@ function initialiseLevel() {
     const level8Range = [155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176];
     const level9Range = [177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198];
     const level10Range = [199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220];
-    levelSet = 0;
-
+ 
     switch(currentLevel) {
         case 1:
             levelOptions = level1Range;
-            currentQuestion = 1;
+            levelQuestion = 1;
             break;
         case 2:
             levelOptions = level2Range;
@@ -64,7 +93,6 @@ function initialiseLevel() {
             console.log('An error has occured when initialising the level');
     }
 }
-
 // This function picks three question IDs out of the level array, 1 correct answer and 2 incorrect answers. It removes these question from the array ensuring they do not reappear again during the game.
 function generateQuestionIDs() {
     //Correct answer
@@ -79,12 +107,31 @@ function generateQuestionIDs() {
     currentAnswerIndex = Math.floor(Math.random() * levelOptions.length);
     currentIncorrectAnswer2ID = levelOptions[currentAnswerIndex];
     levelOptions.splice(currentAnswerIndex, 1);
-    levelSet++;
-    console.log('Array items', levelOptions.length);
-    console.log('Level round', levelSet);
-    console.log(levelOptions);
 }
+function answerPositions() {
+    correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
+    switch(currentAnswerPosition) {
+        case 1: 
+            incorrectAnswer1Position = 2;
+            incorrectAnswer2Position = 3;
+            break;
+        case 2:
+            incorrectAnswer1Position = 1;
+            incorrectAnswer2Position = 3;
+            break;
+        case 3:
+            incorrectAnswer1Position = 1;
+            incorrectAnswer2Position = 2;
+    }
+}
+function initialiseQuestion(){
+    if(questionType == 1) {
+       
+    }
+    else {
 
+    }
+}
 // Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
     // This function determines whether the player has enabled or disabled sounds
@@ -129,10 +176,16 @@ function updateProgressRing(percent) {
 // Level up - creates div, plays animation, updates variables, deletes div on animaion completition 
 function levelUp() {
     outerContainer.innerHTML = `
-    <div id="level-up-container">
-        <img id="level-up-spinner" src="assets/images/levelup_spinner.svg">
-        <span id="level-up-text">Level Up</span>
-    </div>
+    <div id="home-screen">
+       <h1>Flags &<br>Countries</h1>
+       <h2>The Geography Game</h2>
+       <img src="assets/images/globe.png">
+       <div id="main-menu-buttons-flex">
+        <button type="button" id="main-play">Play</button>
+        <button type="button" id="main-scores">Scores</button>
+        <button type="button" id="main-how-to-play">How to Play</button>
+       </div>
+   </div>
     `;
     currentLevel++;
     let levelTop = document.getElementById('level-top');
@@ -156,6 +209,4 @@ function gameOver() {
     `;
     let gameOverCont = document.getElementById('game-over-cont');
     gameOverCont.style.animation = "gameOver 0.4s linear";
-
 }
-gameOver();
