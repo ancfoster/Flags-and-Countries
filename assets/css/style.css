@@ -146,7 +146,175 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+/* Home Screen Styles */
+#home-screen {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 75%;
+    max-width: 400px;
+}
+#home-screen img {
+    width: 75%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+}
+#home-screen h1 {
+    font-family: objektiv-mk3, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 3.9rem;
+    padding: 0;
+    margin: 0;
+}
+#home-screen h2 {
+    font-family: objektiv-mk3, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 16px 0;
+    margin: 0;
+}
+@media screen and (max-width: 500px ) {
+    #home-screen h1 {
+        font-size: 3.3rem;
+        line-height: 3.8rem;
+    }
+    #home-screen h2 {
+        font-size: 1.7rem;
+        line-height: 2.0rem;
+    }
+}
+@media screen and (max-width: 420px ) {
+    #home-screen h1 {
+        font-size: 2.7rem;
+        line-height: 2.9rem;
+    }
+    #home-screen h2 {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+    }
+}
+@media screen and (max-width: 374px ) {
+    #home-screen h1 {
+        font-size: 2.3rem;
+        line-height: 2.5rem;
+    }
+    #home-screen h2 {
+        font-size: 1.1rem;
+        line-height: 1.4rem;
+        padding: 12px 0;
+    }
+}
+@media  screen and (orientation: landscape) and (max-height: 750px) {
+    #home-screen h1 {
+        font-size: 2.4rem;
+        line-height: 2.7rem;
+    }
+    #home-screen h2 {
+        font-size: 1.3rem;
+        line-height: 1.4rem;
+    }
+    #home-screen img {
+        width: 45%;
+    }
+}
+@media  screen and (orientation: landscape) and (max-height: 590px) {
+    #home-screen h1 {
+        font-size: 1.7rem;
+        line-height: 1.9rem;
+    }
+    #home-screen h2 {
+        font-size: 1.0rem;
+        line-height: 1.1rem;
+        padding: 12px;
+    }
+    #home-screen img {
+        width: 30%;
+    }
+    #control-bar {
+        margin-top: 16px;
+    }
+}
+@media  screen and (orientation: landscape) and (max-height: 495px) {
+    #home-screen h1 {
+        font-size: 1.7rem;
+        line-height: 1.9rem;
+    }
+    #home-screen h2 {
+        font-size: 1.0rem;
+        line-height: 1.1rem;
+        padding: 12px;
+    }
+    #home-screen img {
+        width: 30%;
+    }
+    #control-bar {
+        margin-top: 10px;
+    }
+}
+@media  screen and (orientation: landscape) and (max-height: 466px) {
+    #home-screen h1 {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+    #home-screen h2 {
+        font-size: 1.0rem;
+        line-height: 1.1rem;
+        padding: 12px;
+    }
+    #home-screen img {
+        width: 25%;
+    }
+    #control-bar {
+        margin-top: 10px;
+    }
+    #main-menu-buttons-flex button {
+        height: 2.5rem !important;
+        font-size: 1.0rem!important;
+    }
+}
+@media  screen and (orientation: landscape) and (max-height: 466px) {
+    #main-menu-buttons-flex {
+        margin-top: 8px !important;
+    }
+}
+#main-menu-buttons-flex {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+#main-menu-buttons-flex button {
+    height: 3.3rem;
+    background-color: #FFFFFF20;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 3.3rem;
+    margin-bottom: 1.4rem;
+    cursor: pointer;
+    margin-bottom: 0.8rem;
+}
+#main-play {
+    width: calc(50% - 8px);
+    margin-right: 8px;
+}
+#main-scores {
+    width: calc(50% - 8px);
+    margin-left: 8px;
+}
+#main-how-to-play {
+    width: 100%;
+}
 /* Question Type A styles */
 .typeA-flag {
     width: 45%;
@@ -179,7 +347,6 @@ body {
     cursor: pointer;
 }
 /* Question Type B styles */
-
 .typeB-question-form button img {
     width: auto;
     height: 4rem;
