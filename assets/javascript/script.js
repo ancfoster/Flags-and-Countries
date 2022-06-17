@@ -1,4 +1,5 @@
 /* jshint esversion: 11 */
+
 //Global Scope Variables
 let body = document.body;
 let currentQuestion = 1;
@@ -13,11 +14,12 @@ let incorrectAnswer1Position = null;
 let incorrectAnswer2Position = null;
 let correctAnswerPosition = null;
 let levelOptions = [];
-let answerSelected = false;
+let answerSelected = null;
 let soundEnabled = true;
 let playerName = 'player001'
 let outerContainer = document.getElementById('outer-container');
 
+// Loads Main Menu Screen Upon Loading Body
 body.addEventListener("load", mainMenuLoad());
 function mainMenuLoad() {
     outerContainer.innerHTML = `
@@ -34,6 +36,7 @@ function mainMenuLoad() {
    document.getElementById("main-play").addEventListener("click", newGame);
 }
 function newGame() {
+    document.getElementById("main-play").removeEventListener("click", newGame);
     outerContainer.innerHTML = "";
     currentLevel = 1;
     currentQuestion = 1;
@@ -43,6 +46,9 @@ function newGame() {
     questionType = 1;
     document.getElementById('score-container').style.visibility = "visible";
     document.getElementById('level-status-container').style.visibility = "visible";
+    initialiseLevel();
+    generateQuestionIDs();
+    initialiseQuestion();
 }
 function initialiseLevel() {
     // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions
@@ -108,30 +114,71 @@ function generateQuestionIDs() {
     currentIncorrectAnswer2ID = levelOptions[currentAnswerIndex];
     levelOptions.splice(currentAnswerIndex, 1);
 }
-function answerPositions() {
-    correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
-    switch(currentAnswerPosition) {
-        case 1: 
-            incorrectAnswer1Position = 2;
-            incorrectAnswer2Position = 3;
-            break;
-        case 2:
-            incorrectAnswer1Position = 1;
-            incorrectAnswer2Position = 3;
-            break;
-        case 3:
-            incorrectAnswer1Position = 1;
-            incorrectAnswer2Position = 2;
-    }
-}
 function initialiseQuestion(){
     if(questionType == 1) {
-       
+       questionType1();
     }
     else {
-
+        questionType2();
     }
 }
+function questionType1() {
+    let correctCountryObject = questions.find(question => question.id === currentCorrectAnswerID);
+    let incorrectCountry1Object = questions.find(question => question.id === currentIncorrectAnswer1ID);
+    let incorrectCountry2Object = questions.find(question => question.id === currentIncorrectAnswer2ID);
+    questionImagePath = correctCountryObject.flagFile;
+    correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
+    switch(correctAnswerPosition) {
+        case 1:
+            button1Text = correctCountryObject.countryName;
+            button2Text = incorrectCountry1Object.countryName;
+            button3Text = incorrectCountry2Object.countryName;
+            break;
+        case 2:
+            button1Text = incorrectCountry1Object.countryName;
+            button2Text = correctCountryObject.countryName;
+            button3Text = incorrectCountry2Object.countryName;
+            break;
+        case 3:
+            button1Text = incorrectCountry1Object.countryName;
+            button2Text = incorrectCountry2Object.countryName;
+            button3Text = correctCountryObject.countryName;
+            break;
+    }
+    outerContainer.innerHTML = `
+    <div id="typeA-container" class="question-inner-container">
+        <form class="typeA-question-form">
+            <img class="typeA-flag" src="assets/images/flags/${questionImagePath}">
+            <span class="typeA-question-heading">This is the flag of . . .</span>
+            <button type='button' id="buttonAnswer1" value="1">
+                ${button1Text}
+            </button>
+            <button type='button' id="buttonAnswer2" value="2">
+                ${button2Text}
+            </button>
+            <button type='button' id="buttonAnswer3" value="3">
+                ${button3Text}
+            </button>
+        </form>
+    </div>
+    `;
+    document.getElementById("buttonAnswer1").addEventListener("click", function() {
+        answerSelected = 1;
+    });
+    document.getElementById("buttonAnswer1").addEventListener("click", function() {
+        answerSelected = 2;
+    });
+    document.getElementById("buttonAnswer1").addEventListener("click", function() {
+        answerSelected = 3;
+    });
+    checkAnswer();
+}
+
+function questionType2() {
+    correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
+}
+function checkAnswer();
+
 // Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
     // This function determines whether the player has enabled or disabled sounds
