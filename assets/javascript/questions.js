@@ -1099,4 +1099,4 @@ const questions = [
     "countryName": "Pitcairn Islands",
     "flagFile": "220.png"
   }
- ]
+ ];

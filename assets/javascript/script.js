@@ -224,6 +224,30 @@ function checkLevel () {
         case 14:
             levelUp();
         break;
+        case 21:
+            levelUp();
+        break;
+        case 28:
+            levelUp();
+        break;
+        case 35:
+            levelUp();
+        break;
+        case 42:
+            levelUp();
+        break;
+        case 49:
+            levelUp();
+        break;
+        case 56:
+            levelUp();
+        break;
+        case 63:
+            levelUp();
+        break;
+        case 70:
+            gameWinner();
+        break;
     default:
         generateQuestionIDs();
         initialiseQuestion();
@@ -298,6 +322,9 @@ function levelUp() {
         generateQuestionIDs();
         initialiseQuestion();
     });    
+}
+function gameWinner() {
+    alert('Game won!');
 }
 function gameOver() {
     outerContainer.innerHTML = `
