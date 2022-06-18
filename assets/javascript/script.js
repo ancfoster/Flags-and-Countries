@@ -14,6 +14,7 @@ let currentIncorrectAnswer2ID = 0;
 let incorrectAnswer1Position = null;
 let incorrectAnswer2Position = null;
 let correctAnswerPosition = null;
+let progressRingPercent = 1;
 let levelOptions = [];
 let answerSelected = null;
 let soundEnabled = true;
@@ -180,17 +181,25 @@ function questionType2() {
 function checkAnswer() {
     if(answerSelected === correctAnswerPosition) {
         correctAnswerSound();
-        document.getElementById("buttonAnswer" + answerSelected).style.animation = "correctAnswer 1.0s ease-in-out";
-        document.getElementById("buttonAnswer" + answerSelected).addEventListener('animationend', () => {
-        outerContainer.innerHTML = "";
-    });
+        let newProgressRingPercent = progressRingPercent + 14;
+        updateProgressRing(newProgressRingPercent);
+        document.getElementById('buttonAnswer' + answerSelected).style.animation = 'correctAnswer 1.1s ease-in-out';
+        document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
+        typeAremove();
+        });
     }
     else {
         incorrectAnswerSound();
         gameOver();
     };
 }
-
+function typeAremove() {
+    const typeA = document.getElementById('typeA-container');
+    typeA.style.animation = 'remove-modal 1.1s ease-in-out';
+    typeA.addEventListener('animationend', function() {
+        outerContainerClear();
+    });
+}
 // Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
     // This function determines whether the player has enabled or disabled sounds
@@ -222,6 +231,7 @@ function levelUpSound() {
         sound.play();
     }
 }
+// Calculates Progress Ring %
 
 // This controls the status of the level progress ring. Arguements 0-100
 function updateProgressRing(percent) {
@@ -268,4 +278,7 @@ function gameOver() {
     `;
     let gameOverCont = document.getElementById('game-over-cont');
     gameOverCont.style.animation = "gameOver 0.4s linear";
+}
+function outerContainerClear (){
+    outerContainer.innerHTML = "";
 }
