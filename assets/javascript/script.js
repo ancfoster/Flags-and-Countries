@@ -43,7 +43,7 @@ function newGame() {
     currentLevel = 1;
     currentQuestion = 1;
     updateProgressRing(1);
-    questionType = 2;
+    questionType = 1;
     document.getElementById('score-container').style.visibility = "visible";
     document.getElementById('level-status-container').style.visibility = "visible";
     initialiseLevel();
@@ -116,9 +116,11 @@ function generateQuestionIDs() {
 }
 function initialiseQuestion(){
     if(questionType == 1) {
+       questionType = questionType + 1;
        questionType1();
     }
     else {
+        questionType = questionType - 1;
         questionType2();
     }
 }
