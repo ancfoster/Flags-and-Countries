@@ -3,6 +3,7 @@
 //Global Scope Variables
 let body = document.body;
 let currentQuestion = 1;
+let score = 0;
 let currentLevel = 1;
 let questionType = null;
 let levelQuestion = null;
@@ -41,8 +42,6 @@ function newGame() {
     currentLevel = 1;
     currentQuestion = 1;
     updateProgressRing(1);
-    //initialiseLevel;
-    //initialiseQuestion;
     questionType = 1;
     document.getElementById('score-container').style.visibility = "visible";
     document.getElementById('level-status-container').style.visibility = "visible";
@@ -123,9 +122,9 @@ function initialiseQuestion(){
     }
 }
 function questionType1() {
-    let correctCountryObject = questions.find(question => question.id === currentCorrectAnswerID);
-    let incorrectCountry1Object = questions.find(question => question.id === currentIncorrectAnswer1ID);
-    let incorrectCountry2Object = questions.find(question => question.id === currentIncorrectAnswer2ID);
+    let correctCountryObject = questions.find(question => question.id == currentCorrectAnswerID);
+    let incorrectCountry1Object = questions.find(question => question.id == currentIncorrectAnswer1ID);
+    let incorrectCountry2Object = questions.find(question => question.id == currentIncorrectAnswer2ID);
     questionImagePath = correctCountryObject.flagFile;
     correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
     switch(correctAnswerPosition) {
@@ -164,20 +163,33 @@ function questionType1() {
     `;
     document.getElementById("buttonAnswer1").addEventListener("click", function() {
         answerSelected = 1;
+        checkAnswer();
     });
-    document.getElementById("buttonAnswer1").addEventListener("click", function() {
+    document.getElementById("buttonAnswer2").addEventListener("click", function() {
         answerSelected = 2;
+        checkAnswer();
     });
-    document.getElementById("buttonAnswer1").addEventListener("click", function() {
+    document.getElementById("buttonAnswer3").addEventListener("click", function() {
         answerSelected = 3;
+        checkAnswer();
     });
-    checkAnswer();
 }
-
 function questionType2() {
     correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
 }
-function checkAnswer();
+function checkAnswer() {
+    if(answerSelected === correctAnswerPosition) {
+        correctAnswerSound();
+        document.getElementById("buttonAnswer" + answerSelected).style.animation = "correctAnswer 1.0s ease-in-out";
+        document.getElementById("buttonAnswer" + answerSelected).addEventListener('animationend', () => {
+        outerContainer.innerHTML = "";
+    });
+    }
+    else {
+        incorrectAnswerSound();
+        gameOver();
+    };
+}
 
 // Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
@@ -249,7 +261,7 @@ function gameOver() {
     outerContainer.innerHTML = `
     <div id="game-over-cont">
     <span id="game-over-text">Game Over!</span>
-    <span id="game-over-scored">You scored: 28 points</span>
+    <span id="game-over-scored">You scored: ${score} points</span>
     <button type="button" id="game-over-play-again">Play Again</button>
     <button type="button" id="game-over-main-menu">Main Menu</button>
     </div>

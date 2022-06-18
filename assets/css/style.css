@@ -305,6 +305,7 @@ body {
     margin-bottom: 1.4rem;
     cursor: pointer;
     margin-bottom: 0.8rem;
+    text-transform: uppercase;
 }
 #main-menu-buttons-flex button:hover {
     border: none;
@@ -312,12 +313,12 @@ body {
     cursor: pointer;
 }
 #main-play {
-    width: calc(50% - 8px);
-    margin-right: 8px;
+    width: calc(50% - 4px);
+    margin-right: 4px;
 }
 #main-scores {
-    width: calc(50% - 8px);
-    margin-left: 8px;
+    width: calc(50% - 4px);
+    margin-left: 4px;
 }
 #main-how-to-play {
     width: 100%;
@@ -487,5 +488,26 @@ body {
     }
     100% {
         transform: scale(1.0);
+    }
+}
+/* button animations */
+@keyframes correctAnswer {
+    0% {
+        background-color: #FFFFFF80;
+    }
+    20% {
+        background-color: #00FF6260;
+    }
+    40% {
+        background-color: #00FF6290;
+    }
+    60% {
+        background-color: #00FF6260;
+    }
+    80% {
+        background-color: #00FF6290;
+    }
+    100% {
+        background-color: #00FF6260;
     }
 }
