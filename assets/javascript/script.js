@@ -176,7 +176,56 @@ function questionType1() {
     });
 }
 function questionType2() {
+    let correctCountryObject = questions.find(question => question.id == currentCorrectAnswerID);
+    let incorrectCountry1Object = questions.find(question => question.id == currentIncorrectAnswer1ID);
+    let incorrectCountry2Object = questions.find(question => question.id == currentIncorrectAnswer2ID);
+    questionImagePath = correctCountryObject.flagFile;
     correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
+    switch(correctAnswerPosition) {
+        case 1:
+            button1Text = correctCountryObject.countryName;
+            button2Text = incorrectCountry1Object.countryName;
+            button3Text = incorrectCountry2Object.countryName;
+            break;
+        case 2:
+            button1Text = incorrectCountry1Object.countryName;
+            button2Text = correctCountryObject.countryName;
+            button3Text = incorrectCountry2Object.countryName;
+            break;
+        case 3:
+            button1Text = incorrectCountry1Object.countryName;
+            button2Text = incorrectCountry2Object.countryName;
+            button3Text = correctCountryObject.countryName;
+            break;
+    }
+    outerContainer.innerHTML = `
+    <div id="typeB-container" class="question-inner-container">
+        <form class="typeB-question-form">
+            <span class="typeB-question-heading">What is the flag of <br>Poland?</span>
+            <button type='button' id="buttonAnswerA" value="A">
+                <img src="assets/images/flags/010.png">
+            </button>
+            <button type='button' id="buttonAnswerB" value="B">
+                <img src="assets/images/flags/013.png">
+            </button>
+            <button type='button' id="buttonAnswerC" value="C">
+                <img src="assets/images/flags/015.png">
+            </button>
+        </form>
+    </div>
+    `;
+    document.getElementById("buttonAnswer1").addEventListener("click", function() {
+        answerSelected = 1;
+        checkAnswer();
+    });
+    document.getElementById("buttonAnswer2").addEventListener("click", function() {
+        answerSelected = 2;
+        checkAnswer();
+    });
+    document.getElementById("buttonAnswer3").addEventListener("click", function() {
+        answerSelected = 3;
+        checkAnswer();
+    });
 }
 function checkAnswer() {
     if(answerSelected === correctAnswerPosition) {
