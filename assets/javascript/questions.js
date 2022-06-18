@@ -231,7 +231,7 @@ const questions = [
   },
   {
     "id": 47,
-    "countryName": "New Zeaand",
+    "countryName": "New Zealand",
     "flagFile": "047.png"
   },
   {
@@ -361,12 +361,12 @@ const questions = [
   },
   {
     "id": 73,
-    "countryName": "Luxemboug",
+    "countryName": "Luxembourg",
     "flagFile": "073.png"
   },
   {
     "id": 74,
-    "countryName": "Cyrpus",
+    "countryName": "Cyprus",
     "flagFile": "074.png"
   },
   {
