@@ -38,13 +38,14 @@ function mainMenuLoad() {
    document.getElementById("main-play").addEventListener("click", newGame);
 }
 function newGame() {
-    document.getElementById("main-play").removeEventListener("click", newGame);
     outerContainer.innerHTML = "";
+    score = 0;
     currentLevel = 1;
     currentQuestion = 1;
     updateProgressRing(1);
     questionType = 1;
     document.getElementById('score-container').style.visibility = "visible";
+    document.getElementById('score-display').innerHTML = score;
     document.getElementById('level-status-container').style.visibility = "visible";
     initialiseLevel();
     generateQuestionIDs();
@@ -392,6 +393,7 @@ function gameOver() {
     <button type="button" id="game-over-main-menu">Main Menu</button>
     </div>
     `;
+    document.getElementById("game-over-play-again").addEventListener("click", newGame);
 }
 function outerContainerClear (){
     outerContainer.innerHTML = "";
