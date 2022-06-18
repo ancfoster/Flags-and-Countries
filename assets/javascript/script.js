@@ -35,7 +35,27 @@ function mainMenuLoad() {
         <button type="button" id="main-how-to-play">How to Play</button>
        </div>
    </div> `;
-   document.getElementById("main-play").addEventListener("click", newGame);
+   document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
+}
+function enterPlayerContainer() {
+    outerContainer.innerHTML = `
+    <div id="enter-player-container">
+        <form>
+           <label>Enter player name:</label>
+           <input type="text" id="player-name-input" maxlength="15">
+           <span id="input-warning"></span>
+           <button type="button" id="enter-player-name-button">Start Game</button>
+       </form>
+    </div>
+    `;
+    document.getElementById("enter-player-name-button").addEventListener("click", function() {
+       if(document.getElementById("player-name-input").value.length <= 2) {
+           document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
+       }
+       else {
+           newGame();
+       }
+    });
 }
 function newGame() {
     outerContainer.innerHTML = "";
