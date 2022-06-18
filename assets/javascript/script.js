@@ -43,7 +43,7 @@ function newGame() {
     currentLevel = 1;
     currentQuestion = 1;
     updateProgressRing(1);
-    questionType = 1;
+    questionType = 2;
     document.getElementById('score-container').style.visibility = "visible";
     document.getElementById('level-status-container').style.visibility = "visible";
     initialiseLevel();
@@ -179,37 +179,37 @@ function questionType2() {
     let correctCountryObject = questions.find(question => question.id == currentCorrectAnswerID);
     let incorrectCountry1Object = questions.find(question => question.id == currentIncorrectAnswer1ID);
     let incorrectCountry2Object = questions.find(question => question.id == currentIncorrectAnswer2ID);
-    questionImagePath = correctCountryObject.flagFile;
+    questionCountryName = correctCountryObject.countryName;
     correctAnswerPosition = (Math.floor(Math.random() * 3) + 1);
     switch(correctAnswerPosition) {
         case 1:
-            button1Text = correctCountryObject.countryName;
-            button2Text = incorrectCountry1Object.countryName;
-            button3Text = incorrectCountry2Object.countryName;
+            button1Flag = correctCountryObject.flagFile;
+            button2Flag = incorrectCountry1Object.flagFile;
+            button3Flag = incorrectCountry2Object.flagFile;
             break;
         case 2:
-            button1Text = incorrectCountry1Object.countryName;
-            button2Text = correctCountryObject.countryName;
-            button3Text = incorrectCountry2Object.countryName;
+            button1Flag = incorrectCountry1Object.flagFile;
+            button2Flag = correctCountryObject.flagFile;
+            button3Flag = incorrectCountry2Object.flagFile;
             break;
         case 3:
-            button1Text = incorrectCountry1Object.countryName;
-            button2Text = incorrectCountry2Object.countryName;
-            button3Text = correctCountryObject.countryName;
+            button1Flag = incorrectCountry1Object.flagFile;
+            button2Flag = incorrectCountry2Object.flagFile;
+            button3Flag = correctCountryObject.flagFile;
             break;
     }
     outerContainer.innerHTML = `
     <div id="typeB-container" class="question-inner-container">
         <form class="typeB-question-form">
-            <span class="typeB-question-heading">What is the flag of <br>Poland?</span>
-            <button type='button' id="buttonAnswerA" value="A">
-                <img src="assets/images/flags/010.png">
+            <span class="typeB-question-heading">What is the flag of <br>${questionCountryName}?</span>
+            <button type='button' id="buttonAnswer1" value="A">
+                <img src="assets/images/flags/${button1Flag}">
             </button>
-            <button type='button' id="buttonAnswerB" value="B">
-                <img src="assets/images/flags/013.png">
+            <button type='button' id="buttonAnswer2" value="B">
+                <img src="assets/images/flags/${button2Flag}">
             </button>
-            <button type='button' id="buttonAnswerC" value="C">
-                <img src="assets/images/flags/015.png">
+            <button type='button' id="buttonAnswer3" value="C">
+                <img src="assets/images/flags/${button3Flag}">
             </button>
         </form>
     </div>
@@ -237,7 +237,7 @@ function checkAnswer() {
         updateProgressRing(progressRingPercent);
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'correctAnswer 1.1s ease-in-out';
         document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
-        typeAremove();
+        questionModalRemove();
         });
     }
     else {
@@ -251,7 +251,7 @@ function checkAnswer() {
         });
     }
 }
-function typeAremove() {
+function questionModalRemove() {
     document.getElementById("buttonAnswer1").removeEventListener("click", function() {
         answerSelected = 1;
         checkAnswer();
