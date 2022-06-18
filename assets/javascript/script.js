@@ -53,7 +53,7 @@ function newGame() {
 function initialiseLevel() {
     // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions
     const level1Range = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
-    const level2Range = [23,24,25,26,27,28.29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44];
+    const level2Range = [23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44];
     const level3Range = [45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66];
     const level4Range = [67,68,69,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88];
     const level5Range = [89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110];
@@ -181,8 +181,11 @@ function questionType2() {
 function checkAnswer() {
     if(answerSelected === correctAnswerPosition) {
         correctAnswerSound();
-        let newProgressRingPercent = progressRingPercent + 14;
-        updateProgressRing(newProgressRingPercent);
+        score = score + 1;
+        currentQuestion++;
+        updateScoreText();
+        progressRingPercent = progressRingPercent + 14;
+        updateProgressRing(progressRingPercent);
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'correctAnswer 1.1s ease-in-out';
         document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
         typeAremove();
@@ -194,11 +197,37 @@ function checkAnswer() {
     };
 }
 function typeAremove() {
-    const typeA = document.getElementById('typeA-container');
-    typeA.style.animation = 'remove-modal 1.1s ease-in-out';
-    typeA.addEventListener('animationend', function() {
-        outerContainerClear();
+    document.getElementById("buttonAnswer1").removeEventListener("click", function() {
+        answerSelected = 1;
+        checkAnswer();
     });
+    document.getElementById("buttonAnswer2").removeEventListener("click", function() {
+        answerSelected = 2;
+        checkAnswer();
+    });
+    document.getElementById("buttonAnswer3").removeEventListener("click", function() {
+        answerSelected = 3;
+        checkAnswer();
+    });
+    outerContainerClear();
+    checkLevel();
+    //const typeA = document.getElementById('typeA-container');
+    //typeA.style.animation = 'remove-modal 0.2s ease-in-out';
+    //typeA.style.animationIterationCount = "1";
+    //setTimeout(() => outerContainerClear(), 200);
+}
+function checkLevel () {
+    switch(score) {
+        case 7:
+            levelUp();
+        break;
+        case 14:
+            levelUp();
+        break;
+    default:
+        generateQuestionIDs();
+        initialiseQuestion();
+    }
 }
 // Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
@@ -231,8 +260,10 @@ function levelUpSound() {
         sound.play();
     }
 }
-// Calculates Progress Ring %
-
+function updateScoreText() {
+    let scoreText = document.getElementById("score-display");
+    scoreText.innerHTML = score;
+}
 // This controls the status of the level progress ring. Arguements 0-100
 function updateProgressRing(percent) {
     let progressRing = document.getElementById("level-progress-ring");
@@ -245,27 +276,28 @@ function updateProgressRing(percent) {
 // Level up - creates div, plays animation, updates variables, deletes div on animaion completition 
 function levelUp() {
     outerContainer.innerHTML = `
-    <div id="home-screen">
-       <h1>Flags &<br>Countries</h1>
-       <h2>The Geography Game</h2>
-       <img src="assets/images/globe.png">
-       <div id="main-menu-buttons-flex">
-        <button type="button" id="main-play">Play</button>
-        <button type="button" id="main-scores">Scores</button>
-        <button type="button" id="main-how-to-play">How to Play</button>
-       </div>
-   </div>
+    <div id="level-up-container">
+        <div id="level-up-text">Level Up!</div>
+        <div id="level-up-spinner"></div>
+    </div>
     `;
-    currentLevel++;
+    currentLevel = currentLevel + 1;
+    console.log(currentLevel);
     let levelTop = document.getElementById('level-top');
     levelTop.innerHTML = currentLevel;
+    progressRingPercent = 1;
     updateProgressRing(1);
     let levelupContainer = document.getElementById('level-up-container');
+    let levelupSpinner = document.getElementById('level-up-spinner');
     levelUpSound();
+    levelupSpinner.style.animation = "levelup-spin 7s linear";
     levelupContainer.style.animation = "levelup 2s linear";
     levelupContainer.addEventListener('animationend', () => {
         outerContainer.innerHTML = "";
-    });
+        initialiseLevel();
+        generateQuestionIDs();
+        initialiseQuestion();
+    });    
 }
 function gameOver() {
     outerContainer.innerHTML = `
