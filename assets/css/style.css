@@ -454,7 +454,12 @@ body {
 #game-over-cont {
     display: flex;
     flex-direction: column;
-    scale: 0;
+    transform: scale(0);
+    animation: gameOver;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
 }
 #game-over-text {
     color: #fff;
@@ -486,14 +491,6 @@ body {
     border: none;
     background-color: #FFFFFF40;
 }
-@keyframes gameOver {
-    0% {
-       transform: scale(0);
-    }
-    100% {
-        transform: scale(1.0);
-    }
-}
 /* remove modal animation */
 @keyframes remove-modal {
     0% {
@@ -505,24 +502,54 @@ body {
         opacity: 0;
     }    
 }
+@keyframes gameOver {
+    0% {
+        transform: scale(0.7) translateY(24px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.0) translateY(0px);
+        opacity: 1.0;
+    }    
+}
 /* button animations */
 @keyframes correctAnswer {
     0% {
-        background-color: #FFFFFF80;
+        background-color: #00FF6260;
     }
     20% {
-        background-color: #00FF6260;
+        background-color: #00FF6290;
     }
     40% {
-        background-color: #00FF6290;
+        background-color: #00FF6260;
     }
     60% {
-        background-color: #00FF6260;
-    }
-    80% {
         background-color: #00FF6290;
     }
-    100% {
+    80% {
         background-color: #00FF6260;
+    }
+    100% {
+        background-color: #00FF6290;
+    }
+}
+@keyframes incorrectAnswer {
+    0% {
+        background-color: #F03B3B77;
+    }
+    20% {
+        background-color: #F03B3B97;
+    }
+    40% {
+        background-color: #F03B3B77;
+    }
+    60% {
+        background-color: #F03B3B97;
+    }
+    80% {
+        background-color: #F03B3B77;
+    }
+    100% {
+        background-color: #F03B3B97;
     }
 }

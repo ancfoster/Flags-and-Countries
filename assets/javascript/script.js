@@ -18,7 +18,7 @@ let progressRingPercent = 1;
 let levelOptions = [];
 let answerSelected = null;
 let soundEnabled = true;
-let playerName = 'player001'
+let playerName = 'player001';
 let outerContainer = document.getElementById('outer-container');
 
 // Loads Main Menu Screen Upon Loading Body
@@ -193,8 +193,14 @@ function checkAnswer() {
     }
     else {
         incorrectAnswerSound();
-        gameOver();
-    };
+        document.getElementById('buttonAnswer' + answerSelected).style.animation = 'incorrectAnswer 0.9s ease-in-out 1';
+        document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
+            document.getElementById('buttonAnswer' + correctAnswerPosition).style.animation = 'correctAnswer 1.1s ease-in-out 1'
+             document.getElementById('buttonAnswer' + correctAnswerPosition).addEventListener('animationend', function() {
+             gameOver();
+             });
+        });
+    }
 }
 function typeAremove() {
     document.getElementById("buttonAnswer1").removeEventListener("click", function() {
@@ -335,8 +341,6 @@ function gameOver() {
     <button type="button" id="game-over-main-menu">Main Menu</button>
     </div>
     `;
-    let gameOverCont = document.getElementById('game-over-cont');
-    gameOverCont.style.animation = "gameOver 0.4s linear";
 }
 function outerContainerClear (){
     outerContainer.innerHTML = "";
