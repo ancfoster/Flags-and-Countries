@@ -6,6 +6,7 @@ html, body {
 body {
     box-sizing: border-box;
     font-family: 'Elza', 'Arial', sans-serif;
+    color: #ffffff;
 }  
 #gradient-bg {
     text-align: center;
@@ -19,7 +20,6 @@ body {
     left: 0;
 }
 #noscript {
-    color: #fff;
     font-size: 1.8rem;
     text-align: center;
     display: block;
@@ -132,7 +132,6 @@ body {
 #score-display {
     font-size: 24px;
     font-weight: 400;
-    color: #fff;
     margin-right: 8px;
     line-height: 36px;
 }
@@ -175,7 +174,6 @@ body {
     font-style: normal;
     font-size: 3.5rem;
     text-transform: uppercase;
-    color: #ffffff;
     line-height: 3.9rem;
     padding: 0;
     margin: 0;
@@ -186,7 +184,6 @@ body {
     font-style: normal;
     font-size: 1.6rem;
     text-transform: uppercase;
-    color: #ffffff;
     padding: 16px 0;
     margin: 0;
 }
@@ -472,7 +469,6 @@ body {
 }
 .typeB-question-heading {
     display: block;
-    color: #fff;
     font-size: 1.7rem;
     line-height: 3rem;
     font-weight: 400;
@@ -555,14 +551,12 @@ body {
     animation-iteration-count: 1;
 }
 #game-over-text {
-    color: #fff;
     font-size: 2.2rem;
     font-weight: 500;
     padding-bottom: 24px;
 }
 #game-over-scored {
     font-size: 1.4rem;
-    color: #fff;
     font-weight: 400;
     padding-bottom: 36px;
 }
@@ -571,7 +565,6 @@ body {
     max-width: 400px;
     height: 3.3rem;
     background-color: #FFFFFF20;
-    color: #fff;
     font-size: 1.3rem;
     font-weight: 500;
     border: none;
@@ -579,6 +572,7 @@ body {
     margin-bottom: 1.4rem;
     cursor: pointer;
     text-transform: uppercase;
+    color: #ffffff;
 }
 #game-over-cont button:hover {
     border: none;
@@ -646,3 +640,93 @@ body {
         background-color: #F03B3B97;
     }
 }
+/* Scores section & table */
+#scores-how-to-cont {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    z-index: 50;
+}
+#scores-inner-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1024px;
+    padding: 0 24px;
+    position: relative;
+    width: 100vw;
+    max-height: 80%;
+    margin: 24px auto 16px auto;
+    overflow-y: scroll;
+}
+#back-button {
+    height: 2.2rem;
+    width: 2.2rem;
+    border: none;
+    background-color: #00000000;
+    background-image: url("../images/arrow_back.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 24px;
+    top: 7px;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+#back-button:hover {
+    transform: translateX(-4px);
+}
+#scores-heading {
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+#score-statement {
+    margin: 16px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+}
+#score-statement span {
+    font-weight: 500;
+}
+#score-table {
+    width: 100%;
+    max-width: 480px;
+}
+#score-table tr {
+    width: 50%;
+    text-align: left;
+}
+td {
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+#score-table th {
+    padding: 8px;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+#clear-scores {
+    background-color: #ffffff20;
+    border: none;
+    border-radius: 1.7rem;
+    padding: 16px;
+    color: #fff;
+    font-size: 1.2rem;
+    width: 240px;
+    margin-top: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+#clear-scores:hover {
+    background-color: #FFFFFF40;
+}
+
