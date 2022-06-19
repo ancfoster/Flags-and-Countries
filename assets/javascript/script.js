@@ -350,37 +350,6 @@ function checkLevel () {
         initialiseQuestion();
     }
 }
-// Sound Functions
-document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
-    // This function determines whether the player has enabled or disabled sounds
-function soundStatus() {
-    if (soundEnabled == true) {
-        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_disabled.png")';
-        soundEnabled = !soundEnabled;
-    }   else { 
-        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_enabled.png")';
-        soundEnabled = !soundEnabled;
-    }
-}
-    //These functions play a sound when called
-function correctAnswerSound() {
-    if (soundEnabled == true) {
-        let sound = new Audio('assets/sounds/correct.mp3');
-        sound.play();
-    }
-}
-function incorrectAnswerSound() {
-    if (soundEnabled == true) {
-        let sound = new Audio('assets/sounds/incorrect_gameover.mp3');
-        sound.play();
-    }
-}
-function levelUpSound() {
-    if (soundEnabled == true) {
-        let sound = new Audio('assets/sounds/level_up.mp3');
-        sound.play();
-    }
-}
 function updateScoreText() {
     let scoreText = document.getElementById("score-display");
     scoreText.innerHTML = score;
@@ -456,9 +425,7 @@ function saveScore() {
     }
     else {
         let arrayScores = JSON.parse(localStorage.getItem("scores"));
-        console.log(arrayScores);
         arrayScores.push({player: playerName, gameScore: score});
-        console.log(arrayScores);
         localStorage.setItem("scores", JSON.stringify(arrayScores));
     }
 }
@@ -532,8 +499,8 @@ function clearScores(){
     localStorage.removeItem('scores');
     localStorage.removeItem('highScore');
     document.getElementById('score-statement').innerHTML = "No scores to show.";
-    document.getElementById('score-table').remove;
     document.getElementById('clear-scores').remove;
+    document.getElementById('score-table').remove;
 }
 function returnMainMenu() {
     let scoresHowToCont = document.getElementById('scores-how-to-cont');
@@ -559,4 +526,41 @@ function returnMainMenu() {
     </div>
     `;
     mainMenuLoad();
+}
+// Sound Functions
+document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
+    // This function determines whether the player has enabled or disabled sounds
+function soundStatus() {
+    if (soundEnabled == true) {
+        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_disabled.png")';
+        soundEnabled = !soundEnabled;
+    }   else { 
+        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_enabled.png")';
+        soundEnabled = !soundEnabled;
+    }
+}
+//These functions play a sound when called
+function correctAnswerSound() {
+    if (soundEnabled == true) {
+        let sound = new Audio('assets/sounds/correct.mp3');
+        sound.play();
+    }
+}
+function incorrectAnswerSound() {
+    if (soundEnabled == true) {
+        let sound = new Audio('assets/sounds/incorrect_gameover.mp3');
+        sound.play();
+    }
+}
+function levelUpSound() {
+    if (soundEnabled == true) {
+        let sound = new Audio('assets/sounds/level_up.mp3');
+        sound.play();
+    }
+}
+function gameWonSound() {
+    if (soundEnabled == true) {
+        let sound = new Audio('assets/sounds/game_won.mp3');
+        sound.play();
+    }
 }
