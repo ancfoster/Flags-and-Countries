@@ -661,7 +661,7 @@ const questions = [
   },
   {
     "id": 133,
-    "countryName": "Phillipines",
+    "countryName": "Philippines",
     "flagFile": "133.png"
   },
   {
