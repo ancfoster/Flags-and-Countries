@@ -467,13 +467,43 @@ function outerContainerClear (){
 }
 function loadScoresUI() {
     let noScores = "";
-    let scoresToDisplay = "";
     if(localStorage.getItem("scores") == null) {
-        noScores = '<span id="score-statment">No scores to show.</span>';
+        noScoresUI();
     }
-    else { 
-        let lsHighScore = localStorage.getItem('highScore');
-        scoresToDisplay = `
+    else {
+        createScoreTableUI() ;
+        document.getElementById("clear-scores").addEventListener("click", clearScores);
+    }
+    document.getElementById("back-button").addEventListener("click", returnMainMenu);
+}
+function noScoresUI() {
+    let controlBar = document.getElementById('control-bar');
+    controlBar.remove();
+    outerContainer.innerHTML = "";
+    let lsHighScore = localStorage.getItem('highScore');
+    let newScoresUI = document.createElement('div');
+    newScoresUI.id = 'scores-how-to-cont';
+    body.appendChild(newScoresUI);
+    newScoresUI.innerHTML = `
+    <div id="scores-inner-cont">
+        <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
+        <span id="scores-heading">Scores</span>
+        <div id="score-statement">No scores to show.</div>
+    </div>
+    `; 
+}
+function createScoreTableUI() {
+    let controlBar = document.getElementById('control-bar');
+    controlBar.remove();
+    outerContainer.innerHTML = "";
+    let lsHighScore = localStorage.getItem('highScore');
+    let newScoresUI = document.createElement('div');
+    newScoresUI.id = 'scores-how-to-cont';
+    body.appendChild(newScoresUI);
+    newScoresUI.innerHTML = `
+    <div id="scores-inner-cont">
+        <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
+        <span id="scores-heading">Scores</span>
         <div id="score-statement"><span>Player001</span> has the highest score of <span>${lsHighScore}</span> points.</div>
         <table id="score-table">
             <tr>
@@ -482,25 +512,9 @@ function loadScoresUI() {
             </tr>
         </table>
         <button id="clear-scores" type="button">Clear Scores</button>
-        `;
-        populateScoresTable();
-        document.getElementById("clear-scores").addEventListener("click", clearScores);
-    }
-    let controlBar = document.getElementById('control-bar');
-    controlBar.remove();
-    outerContainer.innerHTML = "";
-    let newScoresUI = document.createElement('div');
-    newScoresUI.id = 'scores-how-to-cont';
-    body.appendChild(newScoresUI);
-    newScoresUI.innerHTML = `
-    <div id="scores-inner-cont">
-        <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
-        <span id="scores-heading">Scores</span>
-        ${noScores}
-        ${scoresToDisplay}
     </div>
     `;
-    document.getElementById("back-button").addEventListener("click", returnMainMenu);
+    populateScoresTable();
 }
 function populateScoresTable(){
     let arrayScores = JSON.parse(localStorage.getItem("scores"));
@@ -515,7 +529,11 @@ function populateScoresTable(){
     }
 }
 function clearScores(){
-        
+    localStorage.removeItem('scores');
+    localStorage.removeItem('highScore');
+    document.getElementById('score-statement').innerHTML = "No scores to show.";
+    document.getElementById('score-table').remove;
+    document.getElementById('clear-scores').remove;
 }
 function returnMainMenu() {
     let scoresHowToCont = document.getElementById('scores-how-to-cont');
