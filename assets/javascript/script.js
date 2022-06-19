@@ -38,6 +38,7 @@ function mainMenuLoad() {
        </div>
    </div> `;
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
+   document.getElementById("main-scores").addEventListener("click", loadScoresUI);
 }
 function checkLocalStorage() {
     if(localStorage.getItem("playerName") == null) {
@@ -435,6 +436,10 @@ function gameOver() {
     </div>
     `;
     document.getElementById("game-over-play-again").addEventListener("click", enterPlayerContainer);
+    document.getElementById("game-over-main-menu").addEventListener("click", function() {
+        document.getElementById("game-over-cont").remove;
+        mainMenuLoad();
+    });
 }
 function checkHighScore() {
     if(score > Math.floor(highScore)) {
@@ -450,7 +455,7 @@ function saveScore() {
         localStorage.setItem("scores", JSON.stringify(scoreToSet));
     }
     else {
-        arrayScores = JSON.parse(localStorage.getItem("scores"));
+        let arrayScores = JSON.parse(localStorage.getItem("scores"));
         console.log(arrayScores);
         arrayScores.push({player: playerName, gameScore: score});
         console.log(arrayScores);
@@ -459,4 +464,81 @@ function saveScore() {
 }
 function outerContainerClear (){
     outerContainer.innerHTML = "";
+}
+function loadScoresUI() {
+    let noScores = "";
+    let scoresToDisplay = "";
+    if(localStorage.getItem("scores") == null) {
+        noScores = '<span id="score-statment">No scores to show.</span>';
+    }
+    else { 
+        let lsHighScore = localStorage.getItem('highScore');
+        scoresToDisplay = `
+        <div id="score-statement"><span>Player001</span> has the highest score of <span>${lsHighScore}</span> points.</div>
+        <table id="score-table">
+            <tr>
+                <th>Player</th>
+                <th>Points</th>
+            </tr>
+        </table>
+        <button id="clear-scores" type="button">Clear Scores</button>
+        `;
+        populateScoresTable();
+        document.getElementById("clear-scores").addEventListener("click", clearScores);
+    }
+    let controlBar = document.getElementById('control-bar');
+    controlBar.remove();
+    outerContainer.innerHTML = "";
+    let newScoresUI = document.createElement('div');
+    newScoresUI.id = 'scores-how-to-cont';
+    body.appendChild(newScoresUI);
+    newScoresUI.innerHTML = `
+    <div id="scores-inner-cont">
+        <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
+        <span id="scores-heading">Scores</span>
+        ${noScores}
+        ${scoresToDisplay}
+    </div>
+    `;
+    document.getElementById("back-button").addEventListener("click", returnMainMenu);
+}
+function populateScoresTable(){
+    let arrayScores = JSON.parse(localStorage.getItem("scores"));
+    let scoreTable = document.getElementById('score-table');
+    for(let arrayItem = 0; arrayItem < arrayScores.length; arrayItem++) {
+        let row = (arrayScores[arrayItem]);
+        let tablePlayer = (row.player);
+        let tableScore = (row.gameScore);
+        let newRow = document.createElement('tr');
+        newRow.innerHTML =  `<td>${tablePlayer}</td><td>${tableScore}</td>`;
+        scoreTable.appendChild(newRow);
+    }
+}
+function clearScores(){
+        
+}
+function returnMainMenu() {
+    let scoresHowToCont = document.getElementById('scores-how-to-cont');
+    scoresHowToCont.remove();
+    let controlBar = document.createElement('div');
+    controlBar.id = 'control-bar';
+    body.appendChild(controlBar);
+    controlBar.innerHTML = `
+    <div id="mute-container"><button id="mute-btn" aria-label="Toggle Sound effects"></button></div>
+    <div id="level-status-container">
+        <div id="level-label">Level</div>
+        <div id="level-ring-container">
+            <div id="level-top">1</div>
+            <svg width="52px" height="52px">
+                <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
+                <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
+            </svg>
+        </div>
+    </div>
+    <div id="score-container">
+        <span id="score-display">0</span>
+        <img src="assets/images/score_icon.svg"alt="Score Symbol">
+    </div>
+    `;
+    mainMenuLoad();
 }
