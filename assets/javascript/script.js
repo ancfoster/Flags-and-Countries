@@ -424,6 +424,7 @@ function gameWinner() {
 }
 function gameOver() {
     checkHighScore();
+    saveScore();
     outerContainer.innerHTML = `
     <div id="game-over-cont">
     <span id="game-over-text">Game Over!</span>
@@ -439,6 +440,21 @@ function checkHighScore() {
     if(score > Math.floor(highScore)) {
         localStorage.setItem("highScore", score);
         localStorage.setItem("highScorePlayer", playerName);
+    }
+}
+function saveScore() {
+    if(localStorage.getItem("scores") == null)  {
+        let scoreToSet = [
+            {player: playerName, gameScore: score}
+        ];
+        localStorage.setItem("scores", JSON.stringify(scoreToSet));
+    }
+    else {
+        arrayScores = JSON.parse(localStorage.getItem("scores"));
+        console.log(arrayScores);
+        arrayScores.push({player: playerName, gameScore: score});
+        console.log(arrayScores);
+        localStorage.setItem("scores", JSON.stringify(arrayScores));
     }
 }
 function outerContainerClear (){
