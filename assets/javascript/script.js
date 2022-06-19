@@ -18,8 +18,10 @@ let progressRingPercent = 1;
 let levelOptions = [];
 let answerSelected = null;
 let soundEnabled = true;
-let playerName = 'player001';
+let playerName = 'Player001';
+let highScore = 0;
 let outerContainer = document.getElementById('outer-container');
+
 
 // Loads Main Menu Screen Upon Loading Body
 body.addEventListener("load", mainMenuLoad());
@@ -36,17 +38,20 @@ function mainMenuLoad() {
        </div>
    </div> `;
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
-   checkLocalStorage();
 }
 function checkLocalStorage() {
     if(localStorage.getItem("playerName") == null) {
         localStorage.setItem("playerName", "Player001");
+        localStorage.setItem("highScore", 0);
+        localStorage.setItem("highScorePlayer", "Player001")
     }
     else {
         playerName = localStorage.getItem("playerName");
+        highScore = localStorage.getItem("highScore");
     }
 }
 function enterPlayerContainer() {
+    checkLocalStorage();
     outerContainer.innerHTML = `
     <div id="enter-player-container">
         <form>
@@ -62,6 +67,7 @@ function enterPlayerContainer() {
            document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
        }
        else {
+            playerName = document.getElementById("player-name-input").value;
            localStorage.setItem("playerName", document.getElementById("player-name-input").value);
            newGame();
        }
@@ -416,15 +422,23 @@ function gameWinner() {
     alert('Game won!');
 }
 function gameOver() {
+    checkHighScore();
     outerContainer.innerHTML = `
     <div id="game-over-cont">
     <span id="game-over-text">Game Over!</span>
     <span id="game-over-scored">You scored: ${score} points</span>
+    <span id="game-over-scored">Current high score: ${highScore} points</span>
     <button type="button" id="game-over-play-again">Play Again</button>
     <button type="button" id="game-over-main-menu">Main Menu</button>
     </div>
     `;
-    document.getElementById("game-over-play-again").addEventListener("click", newGame);
+    document.getElementById("game-over-play-again").addEventListener("click", enterPlayerContainer);
+}
+function checkHighScore() {
+    if(score > Math.floor(highScore)) {
+        localStorage.setItem("highScore", score);
+        localStorage.setItem("highScorePlayer", playerName);
+    }
 }
 function outerContainerClear (){
     outerContainer.innerHTML = "";
