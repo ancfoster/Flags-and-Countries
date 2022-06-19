@@ -36,13 +36,22 @@ function mainMenuLoad() {
        </div>
    </div> `;
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
+   checkLocalStorage();
+}
+function checkLocalStorage() {
+    if(localStorage.getItem("playerName") == null) {
+        localStorage.setItem("playerName", "Player001");
+    }
+    else {
+        playerName = localStorage.getItem("playerName");
+    }
 }
 function enterPlayerContainer() {
     outerContainer.innerHTML = `
     <div id="enter-player-container">
         <form>
            <label>Enter player name:</label>
-           <input type="text" id="player-name-input" maxlength="15">
+           <input type="text" id="player-name-input" value="${playerName}" maxlength="15">
            <span id="input-warning"></span>
            <button type="button" id="enter-player-name-button">Start Game</button>
        </form>
@@ -53,6 +62,7 @@ function enterPlayerContainer() {
            document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
        }
        else {
+           localStorage.setItem("playerName", document.getElementById("player-name-input").value);
            newGame();
        }
     });
@@ -66,6 +76,7 @@ function newGame() {
     questionType = 1;
     document.getElementById('score-container').style.visibility = "visible";
     document.getElementById('score-display').innerHTML = score;
+    document.getElementById('level-top').innerHTML = currentLevel;
     document.getElementById('level-status-container').style.visibility = "visible";
     initialiseLevel();
     generateQuestionIDs();
