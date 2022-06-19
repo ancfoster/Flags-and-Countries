@@ -78,6 +78,7 @@ function newGame() {
     score = 0;
     currentLevel = 1;
     currentQuestion = 1;
+    progressRingPercent = 1;
     updateProgressRing(1);
     questionType = 1;
     document.getElementById('score-container').style.visibility = "visible";
