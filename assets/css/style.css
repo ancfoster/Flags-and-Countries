@@ -18,6 +18,13 @@ body {
     top: 0;
     left: 0;
 }
+#noscript {
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+    display: block;
+    width: 80%;
+}
 /* Control bar styles */
 #control-bar {
     width: 100%;
