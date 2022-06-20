@@ -43,8 +43,6 @@ function mainMenuLoad() {
 function checkLocalStorage() {
     if(localStorage.getItem("playerName") == null) {
         localStorage.setItem("playerName", "Player001");
-        localStorage.setItem("highScore", 0);
-        localStorage.setItem("highScorePlayer", "Player001")
     }
     else {
         playerName = localStorage.getItem("playerName");
@@ -393,17 +391,32 @@ function gameWinner() {
     alert('Game won!');
 }
 function gameOver() {
-    checkHighScore();
-    saveScore();
-    outerContainer.innerHTML = `
-    <div id="game-over-cont">
-    <span id="game-over-text">Game Over!</span>
-    <span id="game-over-scored">You scored: ${score} points</span>
-    <span id="game-over-scored">Current high score: ${highScore} points</span>
-    <button type="button" id="game-over-play-again">Play Again</button>
-    <button type="button" id="game-over-main-menu">Main Menu</button>
-    </div>
-    `;
+    if(localStorage.getItem('highScore') == null) {
+        saveScore();
+        localStorage.setItem("highScorePlayer", playerName);
+        localStorage.setItem("highScore", score);
+        outerContainer.innerHTML = `
+        <div id="game-over-cont">
+        <span id="game-over-text">Game Over!</span>
+        <span id="game-over-scored">You scored: ${score} points</span>
+        <button type="button" id="game-over-play-again">Play Again</button>
+        <button type="button" id="game-over-main-menu">Main Menu</button>
+        </div>
+        `;
+    }
+    else {
+        checkHighScore();
+        saveScore();
+        outerContainer.innerHTML = `
+        <div id="game-over-cont">
+        <span id="game-over-text">Game Over!</span>
+        <span id="game-over-scored">You scored: ${score} points</span>
+        <span id="game-over-scored">Current high score: ${highScore} points</span>
+        <button type="button" id="game-over-play-again">Play Again</button>
+        <button type="button" id="game-over-main-menu">Main Menu</button>
+        </div>
+        `;
+    }    
     document.getElementById("game-over-play-again").addEventListener("click", enterPlayerContainer);
     document.getElementById("game-over-main-menu").addEventListener("click", function() {
         document.getElementById("game-over-cont").remove;
@@ -412,8 +425,8 @@ function gameOver() {
 }
 function checkHighScore() {
     if(score > Math.floor(highScore)) {
-        localStorage.setItem("highScore", score);
-        localStorage.setItem("highScorePlayer", playerName);
+    localStorage.setItem("highScorePlayer", playerName);
+    localStorage.setItem("highScore", score);
     }
 }
 function saveScore() {
@@ -500,7 +513,7 @@ function clearScores(){
     localStorage.removeItem('highScore');
     document.getElementById('score-statement').innerHTML = "No scores to show.";
     document.getElementById('clear-scores').remove;
-    document.getElementById('score-table').remove;
+    document.getElementById('score-table').style.display='none';
 }
 function returnMainMenu() {
     let scoresHowToCont = document.getElementById('scores-how-to-cont');
