@@ -644,26 +644,21 @@ body {
 #scores-how-to-cont {
     width: 100%;
     min-height: 100%;
+    max-width: 800px;
     position: fixed;
     top: 0;
-    left: 0;
-    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
     flex-direction: column;
-    max-height: 100%;
+    margin: 16px 24px 8px 16px;
     z-index: 50;
 }
-#scores-inner-cont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 1024px;
-    padding: 0 24px;
+#scores-top-row {
+    text-align: center;
     position: relative;
-    width: 100vw;
-    max-height: 80%;
-    margin: 24px auto 16px auto;
-    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 16px;
 }
 #back-button {
     height: 2.2rem;
@@ -674,7 +669,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left: 24px;
+    left: 8px;
     top: 7px;
     margin: auto;
     cursor: pointer;
@@ -689,7 +684,7 @@ body {
 }
 #score-statement {
     margin: 16px 0;
-    width: 100%;
+    max-width: 90%;
     text-align: center;
     font-size: 1.4rem;
 }
@@ -698,21 +693,22 @@ body {
 }
 #score-table {
     width: 100%;
-    max-width: 480px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 #score-table tr {
     width: 50%;
     text-align: left;
 }
 td {
-    padding: 8px;
-    font-size: 1.1rem;
+    padding: 4px 8px;
+    font-size: 1.0rem;
     font-weight: 400;
 }
 #score-table th {
     padding: 8px;
     font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 #clear-scores {
     background-color: #ffffff20;
@@ -722,7 +718,7 @@ td {
     color: #fff;
     font-size: 1.2rem;
     width: 240px;
-    margin-top: 16px;
+    margin: 16px auto 0 auto;
     cursor: pointer;
     text-transform: uppercase;
 }

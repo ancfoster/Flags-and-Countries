@@ -468,18 +468,18 @@ function createScoreTableUI() {
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
     newScoresUI.innerHTML = `
-    <div id="scores-inner-cont">
+    <div id="scores-top-row">
         <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
         <span id="scores-heading">Scores</span>
-        <div id="score-statement"><span>Player001</span> has the highest score of <span>${lsHighScore}</span> points.</div>
-        <table id="score-table">
-            <tr>
-                <th>Player</th>
-                <th>Points</th>
+    </div>
+    <div id="score-statement"><span>Player001</span> has the highest score of <span>${lsHighScore}</span> points.</div>
+    <table id="score-table">
+        <tr>
+            <th>Player</th>
+            <th>Points</th>
             </tr>
         </table>
-        <button id="clear-scores" type="button">Clear Scores</button>
-    </div>
+    <button id="clear-scores" type="button">Clear Scores</button>
     `;
     populateScoresTable();
 }
