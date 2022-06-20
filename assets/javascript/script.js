@@ -22,7 +22,6 @@ let playerName = 'Player001';
 let highScore = 0;
 let outerContainer = document.getElementById('outer-container');
 
-
 // Loads Main Menu Screen Upon Loading Body
 body.addEventListener("load", mainMenuLoad());
 function mainMenuLoad() {
@@ -50,6 +49,7 @@ function checkLocalStorage() {
     }
 }
 function enterPlayerContainer() {
+    gradientControl(0);
     checkLocalStorage();
     outerContainer.innerHTML = `
     <div id="enter-player-container">
@@ -72,8 +72,10 @@ function enterPlayerContainer() {
        }
     });
 }
+// This function starts a new game when called. It sets all variables to their starting position and initialises level and question options.
 function newGame() {
     outerContainer.innerHTML = "";
+    gradientControl(1);
     score = 0;
     currentLevel = 1;
     currentQuestion = 1;
@@ -88,8 +90,8 @@ function newGame() {
     generateQuestionIDs();
     initialiseQuestion();
 }
+// Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions correctly. 
 function initialiseLevel() {
-    // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions
     const level1Range = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
     const level2Range = [23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44];
     const level3Range = [45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66];
@@ -100,7 +102,7 @@ function initialiseLevel() {
     const level8Range = [155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176];
     const level9Range = [177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198];
     const level10Range = [199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220];
- 
+// This section of the function determines which answer options will be used in each level and assigns them using the levelOptions variable. 
     switch(currentLevel) {
         case 1:
             levelOptions = level1Range;
@@ -137,7 +139,7 @@ function initialiseLevel() {
             console.log('An error has occured when initialising the level');
     }
 }
-// This function picks three question IDs out of the level array, 1 correct answer and 2 incorrect answers. It removes these question from the array ensuring they do not reappear again during the game.
+// This function picks three question IDs out of the level array, 1 correct answer and 2 incorrect answers. It removes these questions from the levelOptions array ensuring they do not reappear again during a single game.
 function generateQuestionIDs() {
     //Correct answer
     currentAnswerIndex = Math.floor(Math.random() * levelOptions.length);
@@ -152,6 +154,7 @@ function generateQuestionIDs() {
     currentIncorrectAnswer2ID = levelOptions[currentAnswerIndex];
     levelOptions.splice(currentAnswerIndex, 1);
 }
+// The game features two question types. This function determines which question type will be generated. They always alternate.
 function initialiseQuestion(){
     if(questionType == 1) {
        questionType = questionType + 1;
@@ -162,6 +165,7 @@ function initialiseQuestion(){
         questionType2();
     }
 }
+// Outputs HTML for question type 1. Question type 1 involves one flag picture and three text buttons.
 function questionType1() {
     let correctCountryObject = questions.find(question => question.id == currentCorrectAnswerID);
     let incorrectCountry1Object = questions.find(question => question.id == currentIncorrectAnswer1ID);
@@ -202,6 +206,7 @@ function questionType1() {
         </form>
     </div>
     `;
+    // This section of the function determines which button corresponds with which answer. This allows for the correct answer to be assigned to a different button randomly for each question.
     document.getElementById("buttonAnswer1").addEventListener("click", function() {
         answerSelected = 1;
         checkAnswer();
@@ -215,6 +220,7 @@ function questionType1() {
         checkAnswer();
     });
 }
+// Outputs HTML for type 2 questions. Type 2 questions involve aa country name and three picture answer buttons.
 function questionType2() {
     let correctCountryObject = questions.find(question => question.id == currentCorrectAnswerID);
     let incorrectCountry1Object = questions.find(question => question.id == currentIncorrectAnswer1ID);
@@ -267,7 +273,9 @@ function questionType2() {
         checkAnswer();
     });
 }
+// Checks if the user has selected the correct answer.
 function checkAnswer() {
+    // If the user has selected the correct answer updates the score and calls the functions to move on to the next question.
     if(answerSelected === correctAnswerPosition) {
         correctAnswerSound();
         score = score + 1;
@@ -275,15 +283,19 @@ function checkAnswer() {
         updateScoreText();
         progressRingPercent = progressRingPercent + 14;
         updateProgressRing(progressRingPercent);
+        // Flashes the correct answer button green
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'correctAnswer 1.1s ease-in-out';
         document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
         questionModalRemove();
         });
     }
+    // When an incorrect answer has been selected.
     else {
         incorrectAnswerSound();
+        // Flashes the selected button red to let the user know they picked the wrong answer.
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'incorrectAnswer 0.9s ease-in-out 1';
         document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
+            // Flashes the correct answer button green
             document.getElementById('buttonAnswer' + correctAnswerPosition).style.animation = 'correctAnswer 1.1s ease-in-out 1'
              document.getElementById('buttonAnswer' + correctAnswerPosition).addEventListener('animationend', function() {
              gameOver();
@@ -291,26 +303,12 @@ function checkAnswer() {
         });
     }
 }
+// Removes the question DIV from outerContainer.
 function questionModalRemove() {
-    document.getElementById("buttonAnswer1").removeEventListener("click", function() {
-        answerSelected = 1;
-        checkAnswer();
-    });
-    document.getElementById("buttonAnswer2").removeEventListener("click", function() {
-        answerSelected = 2;
-        checkAnswer();
-    });
-    document.getElementById("buttonAnswer3").removeEventListener("click", function() {
-        answerSelected = 3;
-        checkAnswer();
-    });
     outerContainerClear();
     checkLevel();
-    //const typeA = document.getElementById('typeA-container');
-    //typeA.style.animation = 'remove-modal 0.2s ease-in-out';
-    //typeA.style.animationIterationCount = "1";
-    //setTimeout(() => outerContainerClear(), 200);
 }
+// When a qustion has been answered correctly this function checks whether to initiate the level up animation or if the user has completed the game.
 function checkLevel () {
     switch(score) {
         case 7:
@@ -348,11 +346,12 @@ function checkLevel () {
         initialiseQuestion();
     }
 }
+// Updates the score in the control bar.
 function updateScoreText() {
     let scoreText = document.getElementById("score-display");
     scoreText.innerHTML = score;
 }
-// This controls the status of the level progress ring. Arguements 0-100
+// This controls the status of the level progress ring. Arguements from 0-100 representing a percentage.
 function updateProgressRing(percent) {
     let progressRing = document.getElementById("level-progress-ring");
     const progressRingCircumference = 24 * 2 * Math.PI;
@@ -385,11 +384,14 @@ function levelUp() {
         initialiseLevel();
         generateQuestionIDs();
         initialiseQuestion();
+        gradientControl(currentLevel);
     });    
 }
+// Displays content letting the user know they completed the game.
 function gameWinner() {
     alert('Game won!');
 }
+// Displays the game over information, letting the user know what their score was. 
 function gameOver() {
     if(localStorage.getItem('highScore') == null) {
         saveScore();
@@ -421,14 +423,17 @@ function gameOver() {
     document.getElementById("game-over-main-menu").addEventListener("click", function() {
         document.getElementById("game-over-cont").remove;
         mainMenuLoad();
+        gradientControl(0);
     });
 }
+// Determines if a new high score has been achieved. If so save it to local storage
 function checkHighScore() {
-    if(score > Math.floor(highScore)) {
+    if(score >= Math.floor(highScore)) {
     localStorage.setItem("highScorePlayer", playerName);
     localStorage.setItem("highScore", score);
     }
 }
+// Saves score and player name to local storage
 function saveScore() {
     if(localStorage.getItem("scores") == null)  {
         let scoreToSet = [
@@ -442,9 +447,11 @@ function saveScore() {
         localStorage.setItem("scores", JSON.stringify(arrayScores));
     }
 }
+// Called to remove the contents of outContainer div.
 function outerContainerClear (){
     outerContainer.innerHTML = "";
 }
+// Loads the main UI for the scores modal.
 function loadScoresUI() {
     let noScores = "";
     if(localStorage.getItem("scores") == null) {
@@ -456,6 +463,7 @@ function loadScoresUI() {
     }
     document.getElementById("back-button").addEventListener("click", returnMainMenu);
 }
+// If there are no saved score in local storage this function generates the necessary HTML
 function noScoresUI() {
     let controlBar = document.getElementById('control-bar');
     controlBar.remove();
@@ -472,6 +480,7 @@ function noScoresUI() {
     </div>
     `; 
 }
+// If there are scores in local storage this function generates the scores UI and creates a blank table.
 function createScoreTableUI() {
     let controlBar = document.getElementById('control-bar');
     controlBar.remove();
@@ -496,6 +505,7 @@ function createScoreTableUI() {
     `;
     populateScoresTable();
 }
+// Obtains the scores and player information from localStorage in string format, converts in into an array (consisting of objects), extracts the score and player from each object and outputs as a HTML row.
 function populateScoresTable(){
     let arrayScores = JSON.parse(localStorage.getItem("scores"));
     let scoreTable = document.getElementById('score-table');
@@ -508,6 +518,7 @@ function populateScoresTable(){
         scoreTable.appendChild(newRow);
     }
 }
+// Clears information from localStorage (except set player name) and hides the score table.
 function clearScores(){
     localStorage.removeItem('scores');
     localStorage.removeItem('highScore');
@@ -515,6 +526,7 @@ function clearScores(){
     document.getElementById('clear-scores').remove;
     document.getElementById('score-table').style.display='none';
 }
+// When called reinstates the contro bar and rhen calls the function to reload the main menu
 function returnMainMenu() {
     let scoresHowToCont = document.getElementById('scores-how-to-cont');
     scoresHowToCont.remove();
@@ -542,7 +554,7 @@ function returnMainMenu() {
 }
 // Sound Functions
 document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
-    // This function determines whether the player has enabled or disabled sounds
+ // This function determines whether the player has enabled or disabled sounds
 function soundStatus() {
     if (soundEnabled == true) {
         document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_disabled.png")';
@@ -575,5 +587,65 @@ function gameWonSound() {
     if (soundEnabled == true) {
         let sound = new Audio('assets/sounds/game_won.mp3');
         sound.play();
+    }
+}
+// This function controls and changes the background graidents based on the level of the game
+function gradientControl(gradient) {
+    console.log('gradient ' + gradient)
+    let gradient0 = document.getElementById ('gradient-0');
+    let gradient1 = document.getElementById ('gradient-1');
+    let gradient2 = document.getElementById ('gradient-2');
+    let gradient3 = document.getElementById ('gradient-3');
+    let gradient4 = document.getElementById ('gradient-4');
+    let gradient5 = document.getElementById ('gradient-5');
+    let gradient6 = document.getElementById ('gradient-6');
+    let gradient7 = document.getElementById ('gradient-7');
+    let gradient8 = document.getElementById ('gradient-8');
+    let gradient9 = document.getElementById ('gradient-9');
+    switch(gradient) {
+        case 0:
+            gradient0.style.opacity="1.0";
+            gradient1.style.opacity="1.0";
+            gradient2.style.opacity="1.0";
+            gradient3.style.opacity="1.0";
+            gradient4.style.opacity="1.0";
+            gradient5.style.opacity="1.0";
+            gradient6.style.opacity="1.0";
+            gradient7.style.opacity="1.0";
+            gradient8.style.opacity="1.0";
+            gradient9.style.opacity="1.0";
+            break;
+        case 1:
+            gradient0.style.opacity="0";
+            break;
+        case 2:
+            gradient1.style.opacity="0";
+            break;
+        case 3:
+            gradient2.style.opacity="0";
+            break;
+        case 4:
+            gradient3.style.opacity="0";
+            break;
+        case 5:
+            gradient4.style.opacity="0";
+            break;
+        case 6:
+            gradient5.style.opacity="0";
+            break;
+        case 7:
+            gradient6.style.opacity="0";
+            break;
+        case 8:
+            gradient7.style.opacity="0";
+            break;
+        case 9:
+            gradient8.style.opacity="0";
+            break;
+        case 10:
+            gradient9.style.opacity="0";
+            break;
+        default:
+            console.log("error setting gradient");
     }
 }

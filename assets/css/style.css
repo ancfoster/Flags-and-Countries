@@ -720,9 +720,7 @@ td {
     background-color: #FFFFFF40;
 }
 /* Gradient background styles */
-#gradient-bg {
-    text-align: center;
-    margin: 0 auto;
+#gradient-0 {
     width: 100%;
     min-height: 100%;
     height: 100%;
@@ -730,67 +728,130 @@ td {
     position: fixed;
     top: 0;
     left: 0;
-}
-#gradient-bg div {
-    width: 100%;
-    height: 100%;
-}
-#gradient-0 {
-    z-index: -1;
     background: linear-gradient(0deg, rgb(44, 0, 62) 0%, rgb(1, 21, 49) 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 #gradient-1 {
-    z-index: -2;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
     background: linear-gradient(0deg, rgb(2, 51, 126) 0%, rgb(21, 85, 75) 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 #gradient-2 {
-    z-index: -3;
-    background: linear-gradient(0deg, #0f2027 0%, #203a43 66%, #2c5364 100%);
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background: linear-gradient(0deg, #7c65a9 0%, #96d4ca 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 #gradient-3 {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: -3;
-    background: linear-gradient(0deg, #1f4037 0%, #99f2c8 100%);
+    background: linear-gradient(0deg, #1f4037 0%, #567e6b 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 #gradient-4 {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: -4;
     background: linear-gradient(0deg, #aa4b6b 0%, #6b6b83 66%, #3b8d99 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 #gradient-5 {
-    z-index: -6;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
     background: linear-gradient(0deg, #44a08d 0%, #093637 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 
 }
 #gradient-6 {
-    z-index: -7;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -6;
     background: linear-gradient(0deg, #c33764 0%, #1d2671 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 
 }
 #gradient-7 {
-    z-index: -8;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -7;
     background: linear-gradient(0deg, #F3904F 0%, #3b4371 100%);
     transition: 1.0s ease-in-out;
 }
 #gradient-8 {
-    z-index: -9;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -8;
     background: linear-gradient(0deg, #000428 0%, #004e92 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 #gradient-9 {
-    z-index: -10;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -9;
     background: linear-gradient(0deg, #2c3e50 0%, #2c3e50 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 #gradient-10 {
-    z-index: -11;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -10;
     background: linear-gradient(0deg, #800080 0%, #ffc0cb 100%);
     transition: 1.0s ease-in-out;
+    opacity: 1.0;
 }
 
 

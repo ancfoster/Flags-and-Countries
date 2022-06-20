@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/dvd5gfz.css">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
-    <title>Flags & Countries - The Geography Game</title>
-    <meta name="description" content="Interactive quiz game where you can test your knowledge of countries and their flags.">
+    <title>Flags & Countries - The Interactive Geography Quiz Game</title>
+    <meta name="description" content="Interactive quiz game where you can test your knowledge of the world's countries and their flags.">
     <meta name="keywords" content="flags, flag, countries, quiz, geography, game, national flags">
 </head>
 <body>
+<!--The control bar allows the user to toggle sound effects on or off and contains game information like points and game level-->
 <div id="control-bar">
     <div id="mute-container"><button id="mute-btn" aria-label="Toggle Sound effects"></button></div>
     <div id="level-status-container">
@@ -29,7 +30,19 @@
         <img src="assets/images/score_icon.svg"alt="Score Symbol">
     </div>
 </div>
-<div id="gradient-bg"> </div>
+<!--This group of divs contains the different background colorus for each level and the main menu. -->
+<div id="gradient-0"></div>
+<div id="gradient-1"></div>
+<div id="gradient-2"></div>
+<div id="gradient-3"></div>
+<div id="gradient-4"></div>
+<div id="gradient-5"></div>
+<div id="gradient-6"></div>
+<div id="gradient-7"></div>
+<div id="gradient-8"></div>
+<div id="gradient-9"></div>
+<div id="gradient-10"></div> 
+<!--Outer container is used to contain the main content which is added and removed in the JavaScipt as the player progresses through the game -->
 <div id="outer-container">
     <noscript><span id="noscript">Your browser does not support JavaScript!</span></noscript></div>
 <script src="assets/javascript/script.js"></script>
