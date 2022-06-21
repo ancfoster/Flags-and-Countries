@@ -24,6 +24,7 @@ let outerContainer = document.getElementById('outer-container');
 
 // Loads Main Menu Screen Upon Loading Body
 body.addEventListener("load", mainMenuLoad());
+// Adds the main menu interface and event listeners out outerContainer
 function mainMenuLoad() {
     outerContainer.innerHTML = `
     <div id="home-screen">
@@ -38,6 +39,7 @@ function mainMenuLoad() {
    </div> `;
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
    document.getElementById("main-scores").addEventListener("click", loadScoresUI);
+   document.getElementById("mute-btn").addEventListener("click", soundStatus);
 }
 function checkLocalStorage() {
     if(localStorage.getItem("playerName") == null) {
@@ -569,7 +571,6 @@ function returnMainMenu() {
     mainMenuLoad();
 }
 // Sound Functions
-document.getElementById("mute-btn").addEventListener("click", function(){soundStatus();});
  // This function determines whether the player has enabled or disabled sounds
 function soundStatus() {
     if (soundEnabled == true) {
