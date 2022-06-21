@@ -42,7 +42,11 @@ Adobe Fonts:
 - Autosave and saving game progress. If a user leaves the website in the middle of a game their progress will have been saved to local storage.
 - Global scoreboard that ranks users on how many questions they answered and how quickly.
 ## Technologies Used
-    explain various tech used, such as HTML, CSS, Gitpod/VSCode, GitHub, Git, etc. - add a link to each respective site as well, if possible
+
+- HTML 5
+- CSS
+- JavaScript
+
 ## Tools used
 - For writing code I used [Visual Studio Code](https://code.visualstudio.com/) which I also for Git commands and pushing to GitHub
 
@@ -58,6 +62,8 @@ Adobe Fonts:
 
 - [AutoPrefixer](https://autoprefixer.github.io/) was used to add browser specifc prefixes.
 
+- Adobe Illustrator was used to make several of the game graphics including the score icon and the game complete graphics
+
 
 ## Testing
     "For all testing, please refer to the [TESTING.md](TESTING.md) file."
@@ -69,16 +75,27 @@ Adobe Fonts:
 
 ### Technical documentation & tutorials
 
-- A guide on animating a SVG path using stroke dash array and dash-offset by [Jake Archibold](https://jakearchibald.com/2013/animated-line-drawing-svg/) this formed the basis of the level progress ring
+- I used a tutorial and code snippet by [Jeremias Menichelli](https://css-tricks.com/building-progress-ring-quickly/) to help make the progress ring and update it.
 - MDN documentaton on how to use the [animationend](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event) event
+- MDN documentation on using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) 
+- MDN documentation on how to use [JSON stringify and parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) which was used for the storage and retrieval of multiple player names + scores in localStorage.
 
 ### Media
 
+All flag images were obtained from Wikipedia.
+
+[Globe Image](https://www.turbosquid.com/3d-models/3d-cartoon-world-earth/1054676)
+
 [Speaker Icons](https://iconmonstr.com/sound-thin-svg/)
 
+
+
 #### Sound Effects
-- Correct answer & level up sound by [BlackDragonFX](https://audiojungle.net/item/the-correct/36866229)
+- Correct answer & level up sounds by [BlackDragonFX](https://audiojungle.net/item/the-correct/36866229)
 - Game over / incorrect answer sound by [Shikkon](https://audiojungle.net/item/incorrect-answer/2024374)
+
+- Game completed sound by [PrankAudio](https://audiojungle.net/item/game-win-2/34612805)
+
 
 ### Acknowledgements
     list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
