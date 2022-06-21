@@ -574,10 +574,10 @@ function returnMainMenu() {
  // This function determines whether the player has enabled or disabled sounds
 function soundStatus() {
     if (soundEnabled == true) {
-        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_disabled.png")';
+        document.getElementById("mute-btn").style.backgroundImage='url("../images/sound_disabled.png")';
         soundEnabled = !soundEnabled;
     }   else { 
-        document.getElementById("mute-btn").style.backgroundImage='url("../assets/images/sound_enabled.png")';
+        document.getElementById("mute-btn").style.backgroundImage='url("../images/sound_enabled.png")';
         soundEnabled = !soundEnabled;
     }
 }
