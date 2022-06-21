@@ -353,6 +353,7 @@ function updateScoreText() {
 }
 // This controls the status of the level progress ring. Arguements from 0-100 representing a percentage.
 function updateProgressRing(percent) {
+    // *** This function contains code by Jeremias Menichelli - see README.md *** 
     let progressRing = document.getElementById("level-progress-ring");
     const progressRingCircumference = 24 * 2 * Math.PI;
     progressRing.style.strokeDasharray = `${progressRingCircumference} ${progressRingCircumference}`;
@@ -389,7 +390,21 @@ function levelUp() {
 }
 // Displays content letting the user know they completed the game.
 function gameWinner() {
-    alert('Game won!');
+    saveScore();
+    localStorage.setItem("highScorePlayer", playerName);
+    localStorage.setItem("highScore", score);
+    gameWonSound();
+    outerContainer.innerHTML = `
+    <div id="game-won-container">
+        <div id="spinner"></div>
+        <div id="game-won-badge"><img src="assets/images/game_complete.png" alt="Game complete!"></div>
+    </div>
+    `;
+    setTimeout( function() {
+        document.getElementById("game-won-container").remove;
+        mainMenuLoad();
+        gradientControl(0);
+    }, 4000)
 }
 // Displays the game over information, letting the user know what their score was. 
 function gameOver() {
