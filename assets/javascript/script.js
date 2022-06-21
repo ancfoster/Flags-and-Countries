@@ -277,7 +277,7 @@ function questionType2() {
 }
 // Checks if the user has selected the correct answer.
 function checkAnswer() {
-    // If the user has selected the correct answer updates the score and calls the functions to move on to the next question.
+    // If the user has selected the correct answer updates the score and calls the functions to move on to the next  question.
     if(answerSelected === correctAnswerPosition) {
         correctAnswerSound();
         score = score + 1;
