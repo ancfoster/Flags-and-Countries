@@ -752,7 +752,7 @@ td {
     top: 0;
     left: 0;
     z-index: -2;
-    background: linear-gradient(0deg, #7c65a9 0%, #96d4ca 100%);
+    background: linear-gradient(0deg, #818aef 0%, #133a94 100%);
     transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
@@ -855,9 +855,9 @@ td {
 }
 /* Game won styles & animations */
 #game-won-container {
-    width: 75%;
+    width: 80%;
     aspect-ratio: 1 / 1;
-    max-width: 320px;
+    max-width: 380px;
     display: flex;
     position: relative;
     justify-content: center;
@@ -893,8 +893,6 @@ td {
 #game-won-badge img {
     height: 100%;
     width: auto;
-    -webkit-box-shadow: 1px 8px 24px 2px rgba(0,0,0,0.5); 
-    box-shadow: 1px 8px 24px 2px rgba(0,0,0,0.5);
 }
 @keyframes game-won-spinner {
     0% {

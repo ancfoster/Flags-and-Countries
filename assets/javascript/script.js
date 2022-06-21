@@ -404,7 +404,7 @@ function gameWinner() {
         document.getElementById("game-won-container").remove;
         mainMenuLoad();
         gradientControl(0);
-    }, 4000)
+    }, 5500)
 }
 // Displays the game over information, letting the user know what their score was. 
 function gameOver() {
