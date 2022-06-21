@@ -501,6 +501,7 @@ function createScoreTableUI() {
     controlBar.remove();
     outerContainer.innerHTML = "";
     let lsHighScore = localStorage.getItem('highScore');
+    let lsHighPlayer = localStorage.getItem('highScorePlayer');
     let newScoresUI = document.createElement('div');
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
@@ -509,7 +510,7 @@ function createScoreTableUI() {
         <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
         <span id="scores-heading">Scores</span>
     </div>
-    <div id="score-statement"><span>Player001</span> has the highest score of <span>${lsHighScore}</span> points.</div>
+    <div id="score-statement"><span>${lsHighPlayer}</span> has the highest score of <span>${lsHighScore}</span> points.</div>
     <table id="score-table">
         <tr>
             <th>Player</th>
