@@ -1,0 +1,78 @@
+/* How to play styles */
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}  
+body {
+    font-family: 'Elza', 'Arial', sans-serif;
+    color: #ffffff;
+    background: linear-gradient(0deg, rgb(44, 0, 62) 0%, rgb(1, 21, 49) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+} 
+h1 {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.8rem;
+    padding: 0;
+    margin: 0;
+}
+h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 8px 0;
+    margin: 0;
+}
+p {
+    margin: 0;
+    padding: 8px 0;
+}
+header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+section {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 16px auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#tagline {
+    font-family: objektiv-mk3, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 8px 0 0 0;
+    display: block;
+}
+#back-button {
+    height: 32px;
+    width: 32px;
+    border: none;
+    background-color: #00000000;
+    background-image: url("../images/arrow_back.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 16px;
+    top: 6px;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+#back-button:hover {
+    transform: translateX(-4px);
+}

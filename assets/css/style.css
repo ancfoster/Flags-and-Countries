@@ -41,6 +41,7 @@ body {
     width: 40px;
     height: 40px;
     background-image: url("../images/sound_enabled.png");
+    
     background-repeat: no-repeat;
     background-size: cover;
     transform: scale(1.0);
@@ -922,4 +923,3 @@ td {
         transform: scale(1.0);
     }
 }
-
