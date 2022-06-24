@@ -2,7 +2,7 @@
 
 ![Flags & Countries](readme_assets/responsive.png)
 
-Flags & Countries is an interactive responsive geography quiz game.
+Flags & Countries is an interactive responsive geography quiz game. Its purpose is to test a player's knowledge of the flags of the countries of the world and help them improve their knowledge. 
 
 ## Design Process
 
@@ -16,7 +16,7 @@ Flags & Countries is an interactive responsive geography quiz game.
 
 #### Game Design
 ##### Game elements
--	220 countries/territories in the question bank.
+-	There are 220 countries/territories in the question bank.
 -	To complete the game a user must answer 70 questions correctly. That means 210 countries will feature in a complete game.
 -	If they answer a question incorrectly, they lose and must start over.
 -	There are 7 questions in each level and 10 levels
@@ -31,7 +31,15 @@ Flags & Countries is an interactive responsive geography quiz game.
 
 #### Colour Scheme
 
-I took colour palette inspiration from the games Mounument Valley and Stack.
+- I took colour palette inspiration from the games Mounument Valley and Stack. I wanted to create a very clean and minimal design that made use of changing background gradients.
+
+	![Stack iOS game](readme_assets/stack.jpg)
+
+	![Monument Valley Game](readme_assets/monument_valley.jpeg)
+
+- The Flags & Countries colour palette. The buttons make use of transparency.
+
+	![Colour Scheme](readme_assets/colours.jpeg)
 
 #### Typography
 
@@ -100,6 +108,7 @@ Adobe Fonts:
 ### Features Left to Implement
 - Autosave and saving game progress. If a user leaves the website in the middle of a game their progress will have been saved to local storage.
 - Global scoreboard that ranks users on how many questions they answered and how quickly.
+
 ## Technologies Used
 
 - HTML 5
@@ -115,14 +124,14 @@ Adobe Fonts:
 
 - [Markdown Editor](https://apps.apple.com/ie/app/markdown-editor/id1458220908?mt=12) by Satoshi Iwaki was used for editing .MD files.
 
-	- *In both of my .MD files I have used the HTML image tag in certain situtions. The Markdown syntax does not support [specifiying image size](https://www.markdownguide.org/hacks/#image-size) width which was necessary for readability of these doucments.*
-
 - [AutoPrefixer](https://autoprefixer.github.io/) was used to add browser specifc prefixes.
 
 - Adobe Illustrator was used to make several of the game graphics including the score icon and the game complete graphics.
 
 ## Testing
-    "For all testing, please refer to the [TESTING.md](TESTING.md) file."
+
+- For all testing, please refer to the [TESTING.md](TESTING.md) file.
+
 ## Deployment
 
 The site was deployed to GitHub pages. The steps to deploy are as follows:
@@ -167,4 +176,4 @@ All flag images were obtained from Wikipedia.
 
 
 ### Acknowledgements
-    list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
+I would like to thank my Code Institute mentor Tim Nelson for providing invaluable guidance duirng the development of this project. I also wish to thank my wife Alice for helping me by testing the game.
