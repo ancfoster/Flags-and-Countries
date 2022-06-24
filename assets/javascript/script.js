@@ -490,11 +490,11 @@ function noScoresUI() {
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
     newScoresUI.innerHTML = `
-    <div id="scores-inner-cont">
+    <div id="scores-top-row">
         <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
         <span id="scores-heading">Scores</span>
-        <div id="score-statement">No scores to show.</div>
     </div>
+    <div id="score-statement">No scores to show.</div>    
     `; 
 }
 // If there are scores in local storage this function generates the scores UI and creates a blank table.
