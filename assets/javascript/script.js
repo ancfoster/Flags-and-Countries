@@ -40,6 +40,9 @@ function mainMenuLoad() {
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
    document.getElementById("main-scores").addEventListener("click", loadScoresUI);
    document.getElementById("mute-btn").addEventListener("click", soundStatus);
+   document.getElementById("main-how-to-play").addEventListener("click", function() {
+    window.location.href='how_to_play.html';
+   });
 }
 function checkLocalStorage() {
     if(localStorage.getItem("playerName") == null) {
@@ -251,13 +254,13 @@ function questionType2() {
         <form class="typeB-question-form">
             <span class="typeB-question-heading">What is the flag of <br>${questionCountryName}?</span>
             <button type='button' id="buttonAnswer1" value="A">
-                <img src="assets/images/flags/${button1Flag}">
+                <img alt="Flag A" src="assets/images/flags/${button1Flag}">
             </button>
             <button type='button' id="buttonAnswer2" value="B">
-                <img src="assets/images/flags/${button2Flag}">
+                <img alt="Flag B"src="assets/images/flags/${button2Flag}">
             </button>
             <button type='button' id="buttonAnswer3" value="C">
-                <img src="assets/images/flags/${button3Flag}">
+                <img alt="Flag C" src="assets/images/flags/${button3Flag}">
             </button>
         </form>
     </div>
