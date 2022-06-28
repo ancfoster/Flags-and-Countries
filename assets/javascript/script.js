@@ -18,7 +18,7 @@ let progressRingPercent = 1;
 let levelOptions = [];
 let answerSelected = null;
 let soundEnabled = true;
-let playerName = 'Player001';
+let playerName = '';
 let highScore = 0;
 let outerContainer = document.getElementById('outer-container');
 
@@ -60,13 +60,15 @@ function enterPlayerContainer() {
     <div id="enter-player-container">
         <form>
            <label>Enter player name:</label>
-           <input type="text" id="player-name-input" value="${playerName}" maxlength="15">
+           <input type="text" id="player-name-input" placeholder="Enter your name" value="${playerName}" maxlength="15">
            <span id="input-warning"></span>
            <button type="button" id="enter-player-name-button">Start Game</button>
        </form>
     </div>
     `;
     document.getElementById("enter-player-name-button").addEventListener("click", function() {
+        // buiild into function 
+        // add add eventer listener enter key typed
        if(document.getElementById("player-name-input").value.length <= 2) {
            document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
        }
@@ -611,7 +613,6 @@ function gameWonSound() {
 }
 // This function controls and changes the background graidents based on the level of the game
 function gradientControl(gradient) {
-    console.log('gradient ' + gradient)
     let gradient0 = document.getElementById ('gradient-0');
     let gradient1 = document.getElementById ('gradient-1');
     let gradient2 = document.getElementById ('gradient-2');
