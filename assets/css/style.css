@@ -723,137 +723,69 @@ td {
     background-color: #FFFFFF40;
 }
 /* Gradient background styles */
-#gradient-0 {
+.gradient {
     width: 100%;
     min-height: 100%;
     height: 100%;
-    z-index: 0;
-    position: fixed;
+    transition: 1.0s ease-in-out;
     top: 0;
     left: 0;
+    position: fixed;
+}
+#gradient-0 {
+    z-index: 0;
     background: linear-gradient(0deg, #2c003e 0%, #011531 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 #gradient-1 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -1;
     background: linear-gradient(0deg, #02337e 0%, #15554b 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 #gradient-2 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -2;
     background: linear-gradient(0deg, #818aef 0%, #133a94 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 #gradient-3 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -3;
     background: linear-gradient(0deg, #1f4037 0%, #567e6b 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 #gradient-4 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -4;
     background: linear-gradient(0deg, #aa4b6b 0%, #6b6b83 66%, #3b8d99 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 #gradient-5 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -5;
     background: linear-gradient(0deg, #44a08d 0%, #093637 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 
 }
 #gradient-6 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -6;
     background: linear-gradient(0deg, #c33764 0%, #1d2671 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
-
 }
 #gradient-7 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -7;
     background: linear-gradient(0deg, #F3904F 0%, #3b4371 100%);
     transition: 1.0s ease-in-out;
 }
 #gradient-8 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -8;
     background: linear-gradient(0deg, #000428 0%, #004e92 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 #gradient-9 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -9;
     background: linear-gradient(0deg, #62a1b6 0%, #00858e 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 #gradient-10 {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: -10;
     background: linear-gradient(0deg, #cf99a2 0%,  #800080 100%);
-    transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
 /* Game won styles & animations */

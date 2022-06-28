@@ -30,18 +30,23 @@
         <img src="assets/images/score_icon.svg" alt="Score Symbol">
     </div>
 </div>
-<!--This group of divs contains the different background colorus for each level and the main menu. -->
-<div id="gradient-0"></div>
-<div id="gradient-1"></div>
-<div id="gradient-2"></div>
-<div id="gradient-3"></div>
-<div id="gradient-4"></div>
-<div id="gradient-5"></div>
-<div id="gradient-6"></div>
-<div id="gradient-7"></div>
-<div id="gradient-8"></div>
-<div id="gradient-9"></div>
-<div id="gradient-10"></div> 
+<!--This group of divs contains the different background colours for each level and the main menu. -->
+<!-- Firefox, Safari and older versions of Chrome do not support animated background gradient changes.
+To implement this feature I had to create a series of overlapping divs and then change their transparency.
+This method was ultimately the best solution that worked across different browsers.
+There is another technique that I could have used but it would have only worked for two different gradients not 10
+-->
+<div class="gradient" id="gradient-0"></div>
+<div class="gradient"  id="gradient-1"></div>
+<div class="gradient"  id="gradient-2"></div>
+<div class="gradient"  id="gradient-3"></div>
+<div class="gradient"  id="gradient-4"></div>
+<div class="gradient"  id="gradient-5"></div>
+<div class="gradient"  id="gradient-6"></div>
+<div class="gradient"  id="gradient-7"></div>
+<div class="gradient"  id="gradient-8"></div>
+<div class="gradient"  id="gradient-9"></div>
+<div class="gradient"  id="gradient-10"></div> 
 <!--Outer container is used to contain the main content which is added and removed in the JavaScipt as the player progresses through the game -->
 <div id="outer-container">
     <noscript><span id="noscript">Your browser does not support JavaScript!</span></noscript>
