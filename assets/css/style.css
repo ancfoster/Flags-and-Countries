@@ -392,11 +392,11 @@ body {
 }
 @keyframes questionInner {
     0% {
-        transform: (scale 0.6) translateY(36px);
+        transform: scale(0.6) translateY(36px);
         opacity: 0;
     }
     100% {
-        transform: (scale(1.0)) translateY(0px);
+        transform: scale(1.0) translateY(0px);
         opacity: 1;
     }
 }
@@ -513,7 +513,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-/* animations during level up */
+/* animations during level up transition */
 @keyframes levelup {
     0% {
         transform: scale(0.0);
@@ -575,7 +575,7 @@ body {
     border: none;
     background-color: #FFFFFF40;
 }
-/* remove modal animation */
+/* Remove modal animation */
 @keyframes remove-modal {
     0% {
         transform: scale(1.0) translateY(0);
@@ -731,7 +731,7 @@ td {
     position: fixed;
     top: 0;
     left: 0;
-    background: linear-gradient(0deg, rgb(44, 0, 62) 0%, rgb(1, 21, 49) 100%);
+    background: linear-gradient(0deg, #2c003e 0%, #011531 100%);
     transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
@@ -743,7 +743,7 @@ td {
     top: 0;
     left: 0;
     z-index: -1;
-    background: linear-gradient(0deg, rgb(2, 51, 126) 0%, rgb(21, 85, 75) 100%);
+    background: linear-gradient(0deg, #02337e 0%, #15554b 100%);
     transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
@@ -840,7 +840,7 @@ td {
     top: 0;
     left: 0;
     z-index: -9;
-    background: linear-gradient(0deg, #2c3e50 0%, #2c3e50 100%);
+    background: linear-gradient(0deg, #62a1b6 0%, #00858e 100%);
     transition: 1.0s ease-in-out;
     opacity: 1.0;
 }
@@ -852,7 +852,7 @@ td {
     top: 0;
     left: 0;
     z-index: -10;
-    background: linear-gradient(0deg, #800080 0%, #ffc0cb 100%);
+    background: linear-gradient(0deg, #cf99a2 0%,  #800080 100%);
     transition: 1.0s ease-in-out;
     opacity: 1.0;
 }

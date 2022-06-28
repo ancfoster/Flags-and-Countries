@@ -568,7 +568,7 @@ function returnMainMenu() {
     </div>
     <div id="score-container">
         <span id="score-display">0</span>
-        <img src="assets/images/score_icon.svg"alt="Score Symbol">
+        <img src="assets/images/score_icon.svg" alt="Score Symbol">
     </div>
     `;
     mainMenuLoad();
