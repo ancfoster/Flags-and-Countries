@@ -14,21 +14,28 @@
 <body>
 <!--The control bar allows the user to toggle sound effects on or off and contains game information like points and game level-->
 <div id="control-bar">
-    <div id="mute-container"><button id="mute-btn" aria-label="Toggle Sound effects"></button></div>
-    <div id="level-status-container">
-        <div id="level-label">Level</div>
-        <div id="level-ring-container">
-            <div id="level-top">1</div>
-            <svg width="52px" height="52px">
-                <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
-                <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
-            </svg>
+    <div id="end-button-cont">
+        <button id="end-btn" aria-label="End the current game"></button>
+    </div>
+    <div id="control-bar-central-cont">
+        <div id="level-status-container">
+            <div id="level-label">Level</div>
+            <div id="level-ring-container">
+                <div id="level-top">1</div>
+                <svg width="52px" height="52px">
+                    <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
+                    <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
+                </svg>
+            </div>
+        </div>
+        <div id="score-container">
+            <span id="score-display">0</span>
+            <img src="assets/images/score_icon.svg" alt="Score Symbol">
         </div>
     </div>
-    <div id="score-container">
-        <span id="score-display">0</span>
-        <img src="assets/images/score_icon.svg" alt="Score Symbol">
-    </div>
+        <div id="mute-container">
+            <button id="mute-btn" aria-label="Toggle sound effects on or off"></button>
+        </div>
 </div>
 <!--This group of divs contains the different background colours for each level and the main menu. -->
 <!-- Firefox, Safari and older versions of Chrome do not support animated background gradient changes.
