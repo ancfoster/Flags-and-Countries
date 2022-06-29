@@ -65,18 +65,22 @@ function enterPlayerContainer() {
        </form>
     </div>
     `;
-    document.getElementById("enter-player-name-button").addEventListener("click", function() {
-        // buiild into function 
-        // add add eventer listener enter key typed
-       if(document.getElementById("player-name-input").value.length <= 2) {
-           document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
-       }
-       else {
-           playerName = document.getElementById("player-name-input").value;
-           localStorage.setItem("playerName", document.getElementById("player-name-input").value);
-           newGame();
-       }
+    document.getElementById("enter-player-name-button").addEventListener("click", checkPlayerName);
+    document.addEventListener("keydown", function() {
+        if(event.key == "Enter") {
+            checkPlayerName();
+        }
     });
+}
+function checkPlayerName() {
+    if(document.getElementById("player-name-input").value.length <= 2) {
+        document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
+    }
+    else {
+        playerName = document.getElementById("player-name-input").value;
+        localStorage.setItem("playerName", document.getElementById("player-name-input").value);
+        newGame();
+    }
 }
 // This function starts a new game when called. It sets all variables to their starting position and initialises level and question options.
 function newGame() {
