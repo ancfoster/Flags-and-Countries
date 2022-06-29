@@ -5,22 +5,18 @@ let body = document.body;
 let currentQuestion = 1;
 let score = 0;
 let currentLevel = 1;
-let questionType = null;
-let levelQuestion = null;
 let currentAnswerIndex = 0;
 let currentCorrectAnswerID = 0;
 let currentIncorrectAnswer1ID = 0;
 let currentIncorrectAnswer2ID = 0;
-let incorrectAnswer1Position = null;
-let incorrectAnswer2Position = null;
-let correctAnswerPosition = null;
 let progressRingPercent = 1;
 let levelOptions = [];
-let answerSelected = null;
 let soundEnabled = true;
 let playerName = '';
 let highScore = 0;
 let outerContainer = document.getElementById('outer-container');
+let questionType, levelQuestion, correctAnswerPosition, answerSelected = null;
+let button1Text, button2Text, button3Text, questionCountryName, button1Flag, button2Flag, button3Flag = '';
 
 // Loads Main Menu Screen Upon Loading Body
 body.addEventListener("load", mainMenuLoad());
@@ -335,7 +331,7 @@ function checkAnswer() {
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'incorrectAnswer 0.9s ease-in-out 1';
         document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
             // Flashes the correct answer button green
-            document.getElementById('buttonAnswer' + correctAnswerPosition).style.animation = 'correctAnswer 1.1s ease-in-out 1'
+            document.getElementById('buttonAnswer' + correctAnswerPosition).style.animation = 'correctAnswer 1.1s ease-in-out 1';
             document.getElementById('buttonAnswer' + correctAnswerPosition).addEventListener('animationend', function() {
             gameOver();
             });
@@ -444,7 +440,7 @@ function gameWinner() {
         document.getElementById("control-bar").remove();
         mainMenuLoad();
         gradientControl(0);
-    }, 5500)
+    }, 5500);
 }
 // Displays the game over information, letting the user know what their score was. 
 function gameOver() {   
@@ -511,7 +507,6 @@ function outerContainerClear (){
 }
 // Loads the main UI for the scores modal.
 function loadScoresUI() {
-    let noScores = "";
     if(localStorage.getItem("scores") == null) {
         noScoresUI();
     }
@@ -526,7 +521,6 @@ function noScoresUI() {
     let controlBar = document.getElementById('control-bar');
     controlBar.remove();
     outerContainer.innerHTML = "";
-    let lsHighScore = localStorage.getItem('highScore');
     let newScoresUI = document.createElement('div');
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
@@ -606,7 +600,7 @@ function clearScores(){
     localStorage.removeItem('scores');
     localStorage.removeItem('highScore');
     document.getElementById('score-statement').innerHTML = "No scores to show.";
-    document.getElementById('clear-scores').remove;
+    document.getElementById('clear-scores').remove();
     document.getElementById('score-table').style.display='none';
 }
 // When called calls the function to reload the main menu and removed the scores UI
