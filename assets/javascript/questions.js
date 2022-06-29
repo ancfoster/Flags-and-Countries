@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 const questions = [
   {
     "id": 1,
@@ -1016,7 +1018,7 @@ const questions = [
   },
   {
     "id": 204,
-    "countryName": "Estwatini",
+    "countryName": "Eswatini",
     "flagFile": "204.png"
   },
   {
