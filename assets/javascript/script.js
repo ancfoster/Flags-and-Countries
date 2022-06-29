@@ -72,7 +72,7 @@ function enterPlayerContainer() {
            document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
        }
        else {
-            playerName = document.getElementById("player-name-input").value;
+           playerName = document.getElementById("player-name-input").value;
            localStorage.setItem("playerName", document.getElementById("player-name-input").value);
            newGame();
        }
@@ -80,18 +80,18 @@ function enterPlayerContainer() {
 }
 // This function starts a new game when called. It sets all variables to their starting position and initialises level and question options.
 function newGame() {
-    displayControlBar();
     outerContainer.innerHTML = "";
     gradientControl(1);
     score = 0;
     currentLevel = 1;
     currentQuestion = 1;
     progressRingPercent = 1;
-    updateProgressRing(1);
     questionType = 1;
     initialiseLevel();
     generateQuestionIDs();
     initialiseQuestion();
+    displayControlBar();
+    updateProgressRing(1);
 }
 function displayControlBar() {
     const newControlBarUI = document.createElement('div');
@@ -105,7 +105,7 @@ function displayControlBar() {
         <div id="level-status-container">
             <div id="level-label">Level</div>
             <div id="level-ring-container">
-                <div id="level-top">1</div>
+                <div id="level-top">${currentLevel}</div>
                 <svg width="52px" height="52px">
                     <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
                     <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
@@ -113,7 +113,7 @@ function displayControlBar() {
             </div>
         </div>
     <div id="score-container">
-        <span id="score-display">0</span>
+        <span id="score-display">${score}</span>
         <img src="assets/images/score_icon.svg" alt="Score Symbol">
     </div>
     </div>
@@ -123,10 +123,7 @@ function displayControlBar() {
     `; 
     document.getElementById("mute-btn").addEventListener("click", soundStatus);
     document.getElementById("end-btn").addEventListener("click", userEndGame);
-    let scoreText = document.getElementById("score-display");
-    scoreText.innerHTML = score;
-    document.getElementById('score-display').innerHTML = score;
-    document.getElementById('level-top').innerHTML = currentLevel;
+
 }
 // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions correctly. 
 function initialiseLevel() {
@@ -329,16 +326,15 @@ function checkAnswer() {
     }
     // When an incorrect answer has been selected.
     else {
-        document.getElementById("end-button-cont").innerHTML = '';
         incorrectAnswerSound();
         // Flashes the selected button red to let the user know they picked the wrong answer.
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'incorrectAnswer 0.9s ease-in-out 1';
         document.getElementById('buttonAnswer' + answerSelected).addEventListener('animationend', function() {
             // Flashes the correct answer button green
             document.getElementById('buttonAnswer' + correctAnswerPosition).style.animation = 'correctAnswer 1.1s ease-in-out 1'
-             document.getElementById('buttonAnswer' + correctAnswerPosition).addEventListener('animationend', function() {
-             gameOver();
-             });
+            document.getElementById('buttonAnswer' + correctAnswerPosition).addEventListener('animationend', function() {
+            gameOver();
+            });
         });
     }
 }
@@ -409,7 +405,6 @@ function levelUp() {
     </div>
     `;
     currentLevel = currentLevel + 1;
-    console.log(currentLevel);
     let levelTop = document.getElementById('level-top');
     levelTop.innerHTML = currentLevel;
     progressRingPercent = 1;
@@ -441,14 +436,14 @@ function gameWinner() {
     </div>
     `;
     setTimeout( function() {
-        document.getElementById("game-won-container").remove;
-        document.getElementById("control-bar").remove;
+        document.getElementById("game-won-container").remove();
+        document.getElementById("control-bar").remove();
         mainMenuLoad();
         gradientControl(0);
     }, 5500)
 }
 // Displays the game over information, letting the user know what their score was. 
-function gameOver() {    
+function gameOver() {   
     if(localStorage.getItem("highScore") == null) {
         saveScore();
         localStorage.setItem("highScorePlayer", playerName);
@@ -475,14 +470,12 @@ function gameOver() {
         </div>
         `;
     }
+    document.getElementById("control-bar").remove(); 
     document.getElementById("game-over-play-again").addEventListener("click", function() {
-        document.getElementById("end-button-cont").innerHTML = '<button id="end-btn" aria-label="End the current game"></button>';
-        document.getElementById("end-btn").addEventListener("click", userEndGame);
-        enterPlayerContainer 
+        enterPlayerContainer(); 
     });
     document.getElementById("game-over-main-menu").addEventListener("click", function() {
-        document.getElementById("game-over-cont").remove;
-        document.getElementById("control-bar").remove;
+        document.getElementById("game-over-cont").remove();
         mainMenuLoad();
         gradientControl(0);
     });
@@ -582,17 +575,27 @@ function populateScoresTable(){
 // It presents the UI asking the user to confirm their decision. If the user confirms the game is ended, otherwise the end game UI is removed. 
 function userEndGame() {
     let endGameUI = document.createElement('div');
-    endGameUI.innerHTML =  `
-    <div id="end-game-modal">
-        <div id="end-game-inner">
-            <span id="end-game-heading">Are you sure you wish to end the current game?</span>
-            <p>If you do all game progress will be lost and your score will not be saved.</p>
-            <button type="button" class="end-game-buttons" id="end-game-yes" aria-roledescription="Confirms decision to end game">Yes</button>
-            <button type="button" class="end-game-buttons" id="end-game-no" aria-roledescription="Cancels decision to end game, resumes game">No</button>
-        </div>       
-    </div>
+    endGameUI.id = 'end-game-modal';
+    endGameUI.innerHTML = `
+     <div id="end-game-inner">
+        <span id="end-game-heading">Are you sure you wish to end the current game?</span>
+        <p>If you do all game progress will be lost and your score will not be saved.</p>
+        <button type="button" class="end-game-buttons" id="end-game-yes" aria-roledescription="Confirms decision to end game">Yes</button>
+        <button type="button" class="end-game-buttons" id="end-game-no" aria-roledescription="Cancels decision to end game, resumes game">No</button>
+    </div>       
     `;
     body.appendChild(endGameUI);
+    document.getElementById("end-game-yes").addEventListener("click", yesEndGame);
+    document.getElementById("end-game-no").addEventListener("click", function() {
+       document.getElementById("end-game-modal").remove();
+    });
+}
+function yesEndGame() {
+    document.getElementById("end-game-modal").remove();
+    outerContainer.innerHTML = "";
+    document.getElementById("control-bar").remove();
+    gradientControl(0);
+    mainMenuLoad();
 }
 // Clears information from localStorage (except set player name) and hides the score table.
 function clearScores(){
