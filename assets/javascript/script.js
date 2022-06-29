@@ -122,6 +122,7 @@ function displayControlBar() {
     </div> 
     `; 
     document.getElementById("mute-btn").addEventListener("click", soundStatus);
+    document.getElementById("end-btn").addEventListener("click", userEndGame);
     let scoreText = document.getElementById("score-display");
     scoreText.innerHTML = score;
     document.getElementById('score-display').innerHTML = score;
@@ -580,7 +581,18 @@ function populateScoresTable(){
 // This function is called when the quit game button is pressed.
 // It presents the UI asking the user to confirm their decision. If the user confirms the game is ended, otherwise the end game UI is removed. 
 function userEndGame() {
-
+    let endGameUI = document.createElement('div');
+    endGameUI.innerHTML =  `
+    <div id="end-game-modal">
+        <div id="end-game-inner">
+            <span id="end-game-heading">Are you sure you wish to end the current game?</span>
+            <p>If you do all game progress will be lost and your score will not be saved.</p>
+            <button type="button" class="end-game-buttons" id="end-game-yes" aria-roledescription="Confirms decision to end game">Yes</button>
+            <button type="button" class="end-game-buttons" id="end-game-no" aria-roledescription="Cancels decision to end game, resumes game">No</button>
+        </div>       
+    </div>
+    `;
+    body.appendChild(endGameUI);
 }
 // Clears information from localStorage (except set player name) and hides the score table.
 function clearScores(){
