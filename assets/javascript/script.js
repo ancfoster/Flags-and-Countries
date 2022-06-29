@@ -39,7 +39,6 @@ function mainMenuLoad() {
    </div> `;
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
    document.getElementById("main-scores").addEventListener("click", loadScoresUI);
-   document.getElementById("mute-btn").addEventListener("click", soundStatus);
    document.getElementById("main-how-to-play").addEventListener("click", function() {
     window.location.href='how_to_play.html';
    });
@@ -81,6 +80,7 @@ function enterPlayerContainer() {
 }
 // This function starts a new game when called. It sets all variables to their starting position and initialises level and question options.
 function newGame() {
+    displayControlBar();
     outerContainer.innerHTML = "";
     gradientControl(1);
     score = 0;
@@ -89,13 +89,43 @@ function newGame() {
     progressRingPercent = 1;
     updateProgressRing(1);
     questionType = 1;
-    document.getElementById('score-container').style.visibility = "visible";
-    document.getElementById('score-display').innerHTML = score;
-    document.getElementById('level-top').innerHTML = currentLevel;
-    document.getElementById('level-status-container').style.visibility = "visible";
     initialiseLevel();
     generateQuestionIDs();
     initialiseQuestion();
+}
+function displayControlBar() {
+    const newControlBarUI = document.createElement('div');
+    newControlBarUI.id = 'control-bar';
+    body.appendChild(newControlBarUI);
+    newControlBarUI.innerHTML = `
+    <div id="end-button-cont">
+        <button id="end-btn" aria-label="End the current game"></button>
+    </div>
+    <div id="control-bar-central-cont">
+        <div id="level-status-container">
+            <div id="level-label">Level</div>
+            <div id="level-ring-container">
+                <div id="level-top">1</div>
+                <svg width="52px" height="52px">
+                    <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
+                    <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
+                </svg>
+            </div>
+        </div>
+    <div id="score-container">
+        <span id="score-display">0</span>
+        <img src="assets/images/score_icon.svg" alt="Score Symbol">
+    </div>
+    </div>
+    <div id="mute-container">
+        <button id="mute-btn" aria-label="Toggle sound effects on or off"></button>
+    </div> 
+    `; 
+    document.getElementById("mute-btn").addEventListener("click", soundStatus);
+    let scoreText = document.getElementById("score-display");
+    scoreText.innerHTML = score;
+    document.getElementById('score-display').innerHTML = score;
+    document.getElementById('level-top').innerHTML = currentLevel;
 }
 // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions correctly. 
 function initialiseLevel() {
@@ -298,6 +328,7 @@ function checkAnswer() {
     }
     // When an incorrect answer has been selected.
     else {
+        document.getElementById("end-button-cont").innerHTML = '';
         incorrectAnswerSound();
         // Flashes the selected button red to let the user know they picked the wrong answer.
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'incorrectAnswer 0.9s ease-in-out 1';
@@ -356,7 +387,7 @@ function checkLevel () {
 // Updates the score in the control bar.
 function updateScoreText() {
     let scoreText = document.getElementById("score-display");
-    scoreText.innerHTML = score;
+    scoreText.innerHTML = score; 
 }
 // This controls the status of the level progress ring. Arguements from 0-100 representing a percentage.
 function updateProgressRing(percent) {
@@ -397,6 +428,7 @@ function levelUp() {
 }
 // Displays content letting the user know they completed the game.
 function gameWinner() {
+    document.getElementById("end-button-cont").innerHTML = '';
     saveScore();
     localStorage.setItem("highScorePlayer", playerName);
     localStorage.setItem("highScore", score);
@@ -409,13 +441,14 @@ function gameWinner() {
     `;
     setTimeout( function() {
         document.getElementById("game-won-container").remove;
+        document.getElementById("control-bar").remove;
         mainMenuLoad();
         gradientControl(0);
     }, 5500)
 }
 // Displays the game over information, letting the user know what their score was. 
-function gameOver() {
-    if(localStorage.getItem('highScore') == null) {
+function gameOver() {    
+    if(localStorage.getItem("highScore") == null) {
         saveScore();
         localStorage.setItem("highScorePlayer", playerName);
         localStorage.setItem("highScore", score);
@@ -440,10 +473,15 @@ function gameOver() {
         <button type="button" id="game-over-main-menu">Main Menu</button>
         </div>
         `;
-    }    
-    document.getElementById("game-over-play-again").addEventListener("click", enterPlayerContainer);
+    }
+    document.getElementById("game-over-play-again").addEventListener("click", function() {
+        document.getElementById("end-button-cont").innerHTML = '<button id="end-btn" aria-label="End the current game"></button>';
+        document.getElementById("end-btn").addEventListener("click", userEndGame);
+        enterPlayerContainer 
+    });
     document.getElementById("game-over-main-menu").addEventListener("click", function() {
         document.getElementById("game-over-cont").remove;
+        document.getElementById("control-bar").remove;
         mainMenuLoad();
         gradientControl(0);
     });
@@ -480,7 +518,7 @@ function loadScoresUI() {
         noScoresUI();
     }
     else {
-        createScoreTableUI() ;
+        createScoreTableUI();
         document.getElementById("clear-scores").addEventListener("click", clearScores);
     }
     document.getElementById("back-button").addEventListener("click", returnMainMenu);
@@ -504,8 +542,6 @@ function noScoresUI() {
 }
 // If there are scores in local storage this function generates the scores UI and creates a blank table.
 function createScoreTableUI() {
-    let controlBar = document.getElementById('control-bar');
-    controlBar.remove();
     outerContainer.innerHTML = "";
     let lsHighScore = localStorage.getItem('highScore');
     let lsHighPlayer = localStorage.getItem('highScorePlayer');
@@ -541,6 +577,11 @@ function populateScoresTable(){
         scoreTable.appendChild(newRow);
     }
 }
+// This function is called when the quit game button is pressed.
+// It presents the UI asking the user to confirm their decision. If the user confirms the game is ended, otherwise the end game UI is removed. 
+function userEndGame() {
+
+}
 // Clears information from localStorage (except set player name) and hides the score table.
 function clearScores(){
     localStorage.removeItem('scores');
@@ -549,30 +590,10 @@ function clearScores(){
     document.getElementById('clear-scores').remove;
     document.getElementById('score-table').style.display='none';
 }
-// When called reinstates the contro bar and rhen calls the function to reload the main menu
+// When called calls the function to reload the main menu and removed the scores UI
 function returnMainMenu() {
     let scoresHowToCont = document.getElementById('scores-how-to-cont');
     scoresHowToCont.remove();
-    let controlBar = document.createElement('div');
-    controlBar.id = 'control-bar';
-    body.appendChild(controlBar);
-    controlBar.innerHTML = `
-    <div id="mute-container"><button id="mute-btn" aria-label="Toggle Sound effects"></button></div>
-    <div id="level-status-container">
-        <div id="level-label">Level</div>
-        <div id="level-ring-container">
-            <div id="level-top">1</div>
-            <svg width="52px" height="52px">
-                <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
-                <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
-            </svg>
-        </div>
-    </div>
-    <div id="score-container">
-        <span id="score-display">0</span>
-        <img src="assets/images/score_icon.svg" alt="Score Symbol">
-    </div>
-    `;
     mainMenuLoad();
 }
 // Sound Functions

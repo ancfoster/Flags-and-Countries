@@ -81,7 +81,6 @@ body {
     justify-content: flex-start;
     position: relative;
     flex-direction: row;
-    visibility: hidden;
     border-right: 1px solid #fff;
 }
 #level-ring-container {
@@ -135,10 +134,9 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    width: auto;
+    justify-content: flex-end;
+    width: 44px;
     padding-left: 12px;
-    visibility: hidden;
 }
 #score-display {
     font-size: 24px;
@@ -156,7 +154,7 @@ body {
     width: 100%;
     min-height: 100%;
     z-index: 5;
-    padding-top: 8px;
+    padding-top: 24px;
     background-color: #00000020;
     position: fixed;
     top: 0;
