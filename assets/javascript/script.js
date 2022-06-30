@@ -518,14 +518,12 @@ function loadScoresUI() {
 }
 // If there are no saved score in local storage this function generates the necessary HTML
 function noScoresUI() {
-    let controlBar = document.getElementById('control-bar');
-    controlBar.remove();
     outerContainer.innerHTML = "";
     let newScoresUI = document.createElement('div');
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
     newScoresUI.innerHTML = `
-    <headerid="scores-top-row">
+    <header id="scores-top-row">
         <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
         <span id="scores-heading">Scores</span>
     </header>
