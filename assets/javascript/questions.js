@@ -593,7 +593,7 @@ const questions = [
   },
   {
     "id": 119,
-    "countryName": "British Virgin Islands",
+    "countryName": "British Islands",
     "flagFile": "119.png"
   },
   {
@@ -833,7 +833,7 @@ const questions = [
   },
   {
     "id": 167,
-    "countryName": "U.S Virgin Islands",
+    "countryName": "US Virgin Islands",
     "flagFile": "167.png"
   },
   {
@@ -953,7 +953,7 @@ const questions = [
   },
   {
     "id": 191,
-    "countryName": "Nieu",
+    "countryName": "Niue",
     "flagFile": "191.png"
   },
   {
@@ -973,7 +973,7 @@ const questions = [
   },
   {
     "id": 195,
-    "countryName": "Abkhazia",
+    "countryName": "North Macedonia",
     "flagFile": "195.png"
   },
   {
