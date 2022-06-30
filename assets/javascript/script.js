@@ -39,15 +39,7 @@ function mainMenuLoad() {
     window.location.href='how_to_play.html';
    });
 }
-function checkLocalStorage() {
-    if(localStorage.getItem("playerName") == null) {
-        localStorage.setItem("playerName", "Player001");
-    }
-    else {
-        playerName = localStorage.getItem("playerName");
-        highScore = localStorage.getItem("highScore");
-    }
-}
+// This function generates a UI where the user can enter or modify a player name. 
 function enterPlayerContainer() {
     gradientControl(0);
     checkLocalStorage();
@@ -68,6 +60,17 @@ function enterPlayerContainer() {
         }
     });
 }
+// This function is used to check if there are values in local storage or not. If there are values in local storage these are used to update variables. 
+function checkLocalStorage() {
+    if(localStorage.getItem("playerName") == null) {
+        localStorage.setItem("playerName", "Player001");
+    }
+    else {
+        playerName = localStorage.getItem("playerName");
+        highScore = localStorage.getItem("highScore");
+    }
+}
+// This function checks whether the user has inputted a valid player name
 function checkPlayerName() {
     if(document.getElementById("player-name-input").value.length <= 2) {
         document.getElementById("input-warning").innerHTML="Name must be between 3-15 characters.";
@@ -93,8 +96,9 @@ function newGame() {
     displayControlBar();
     updateProgressRing(1);
 }
+// This function adds the control bar UI to the HTML Body when called. 
 function displayControlBar() {
-    const newControlBarUI = document.createElement('div');
+    const newControlBarUI = document.createElement('nav');
     newControlBarUI.id = 'control-bar';
     body.appendChild(newControlBarUI);
     newControlBarUI.innerHTML = `
@@ -107,15 +111,15 @@ function displayControlBar() {
             <div id="level-ring-container">
                 <div id="level-top">${currentLevel}</div>
                 <svg width="52px" height="52px">
-                    <circle id="level-ring-background" cx="26px" cy="26px" r="24px"/>
-                    <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
+                    <circle id="level-ring-background" cx="26px" cy="26px" r="24px">
+                    <circle id="level-progress-ring" cx="26px" cy="26px" r="24px">
                 </svg>
             </div>
         </div>
-    <div id="score-container">
-        <span id="score-display">${score}</span>
-        <img src="assets/images/score_icon.svg" alt="Score Symbol">
-    </div>
+        <div id="score-container">
+            <span id="score-display">${score}</span>
+            <img src="assets/images/score_icon.svg" alt="Score Symbol">
+        </div>
     </div>
     <div id="mute-container">
         <button id="mute-btn" aria-label="Toggle sound effects on or off"></button>
@@ -123,7 +127,6 @@ function displayControlBar() {
     `; 
     document.getElementById("mute-btn").addEventListener("click", soundStatus);
     document.getElementById("end-btn").addEventListener("click", userEndGame);
-
 }
 // Initialise level question options - if the user answers a question incorrectly and the game is restarted these will be used to repopulate levelOptions correctly. 
 function initialiseLevel() {
@@ -346,37 +349,13 @@ function questionModalRemove() {
 // When a qustion has been answered correctly this function checks whether to initiate the level up animation or if the user has completed the game.
 function checkLevel () {
     switch(score) {
-        case 7:
+        case 7: case 14: case 28: case 35: case 42: case 49: case 56: case 63:
             levelUp();
-        break;
-        case 14:
-            levelUp();
-        break;
-        case 21:
-            levelUp();
-        break;
-        case 28:
-            levelUp();
-        break;
-        case 35:
-            levelUp();
-        break;
-        case 42:
-            levelUp();
-        break;
-        case 49:
-            levelUp();
-        break;
-        case 56:
-            levelUp();
-        break;
-        case 63:
-            levelUp();
-        break;
+            break;
         case 70:
             gameWinner();
-        break;
-    default:
+            break;
+        default:
         generateQuestionIDs();
         initialiseQuestion();
     }
@@ -444,6 +423,7 @@ function gameWinner() {
 }
 // Displays the game over information, letting the user know what their score was. 
 function gameOver() {   
+    // If there is no existing high score in local storage, less information is presented to the user
     if(localStorage.getItem("highScore") == null) {
         saveScore();
         localStorage.setItem("highScorePlayer", playerName);
@@ -457,6 +437,7 @@ function gameOver() {
         </div>
         `;
     }
+    // When there high score is available in local storage this is outputted, letting the player compare their score with the highest achieved score.
     else {
         checkHighScore();
         saveScore();
@@ -470,6 +451,7 @@ function gameOver() {
         </div>
         `;
     }
+    document.getElementById("control-bar").remove();
     document.getElementById("game-over-play-again").addEventListener("click", function() {
         enterPlayerContainer(); 
     });
@@ -529,7 +511,7 @@ function noScoresUI() {
     <div id="score-statement">No scores to show.</div>    
     `; 
 }
-// If there are scores in local storage this function generates the scores UI and creates a blank table.
+// If there are scores saved in local storage this function generates the scores UI and creates a blank table.
 function createScoreTableUI() {
     outerContainer.innerHTML = "";
     let lsHighScore = localStorage.getItem('highScore');
@@ -537,6 +519,7 @@ function createScoreTableUI() {
     let newScoresUI = document.createElement('div');
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
+    // Blank table ready to receieve rows with data from the populateScoresTable function.
     newScoresUI.innerHTML = `
     <header id="scores-top-row">
         <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
@@ -555,8 +538,10 @@ function createScoreTableUI() {
 }
 // Obtains the scores and player information from localStorage in string format, converts in into an array (consisting of objects), extracts the score and player from each object and outputs as a HTML row.
 function populateScoresTable(){
+    // Local storage is just a string value, so to get the scores back into JSON the string must first be parsed
     let arrayScores = JSON.parse(localStorage.getItem("scores"));
     let scoreTable = document.getElementById('score-table');
+    // For each array score outputs a table row with two TDs, one containing the player name and the second the score that was achieved. 
     for(let arrayItem = 0; arrayItem < arrayScores.length; arrayItem++) {
         let row = (arrayScores[arrayItem]);
         let tablePlayer = (row.player);
@@ -581,10 +566,12 @@ function userEndGame() {
     `;
     body.appendChild(endGameUI);
     document.getElementById("end-game-yes").addEventListener("click", yesEndGame);
+    // If the user selects no the coe simply removes the modal
     document.getElementById("end-game-no").addEventListener("click", function() {
        document.getElementById("end-game-modal").remove();
     });
 }
+// This function is called when the user confirms 'Yes' in th emodal that they wish to quit the game. Removes the modal, on screen question, control bar, resets the gradient and then loads the main menu assets.
 function yesEndGame() {
     document.getElementById("end-game-modal").remove();
     outerContainer.innerHTML = "";
@@ -617,7 +604,7 @@ function soundStatus() {
         soundEnabled = !soundEnabled;
     }
 }
-//These functions play a sound when called
+//These functions play a sound when called - correct answer, incorrect answer, level up and game won
 function correctAnswerSound() {
     if (soundEnabled == true) {
         let sound = new Audio('assets/sounds/correct.mp3');
@@ -654,18 +641,14 @@ function gradientControl(gradient) {
     let gradient7 = document.getElementById ('gradient-7');
     let gradient8 = document.getElementById ('gradient-8');
     let gradient9 = document.getElementById ('gradient-9');
+    let gradient_apply = '';
     switch(gradient) {
         case 0:
-            gradient0.style.opacity="1.0";
-            gradient1.style.opacity="1.0";
-            gradient2.style.opacity="1.0";
-            gradient3.style.opacity="1.0";
-            gradient4.style.opacity="1.0";
-            gradient5.style.opacity="1.0";
-            gradient6.style.opacity="1.0";
-            gradient7.style.opacity="1.0";
-            gradient8.style.opacity="1.0";
-            gradient9.style.opacity="1.0";
+            // Loops throughadient divs 0-9 resetting the gradient backgrounds after a game is complete, lost, quit
+            for(let gradient_count = 0; gradient_count < 10; gradient_count++) {
+                gradient_apply = "gradient-" + String(gradient_count);
+                document.getElementById(gradient_apply).style.opacity = "1.0";
+            }
             break;
         case 1:
             gradient0.style.opacity="0";
