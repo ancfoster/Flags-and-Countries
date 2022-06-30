@@ -22,6 +22,7 @@ body {
     width: 80%;
 }
 /* Control bar styles */
+/* control-bar is the primary container */
 #control-bar {
     width: 100%;
     max-width: 1024px;
@@ -49,7 +50,7 @@ body {
             align-items: center;
 }
 #control-bar-central-cont {
-    width: calc(100% - 108px);
+    width: calc(100% - 108px); /* 108px is the total width of the first and last control bar elements */
     height: 52px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -62,6 +63,7 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
 }
+/* COntrol bar - Mute toggle button sttyles */
 #mute-container {
     width: 56px;
     display: -webkit-box;
@@ -97,6 +99,7 @@ body {
     transition: 0.4s;
     opacity: 0.75;
 }
+/* Control bar - End game styles (1st element in control bar) */
 #end-button-cont {
     width: 56px;
 }
@@ -112,6 +115,7 @@ body {
 #end-btn:hover {
     opacity: 0.75;
 }
+/* Control bar - Level status indicator styles */
 #level-status-container {
     width: 118px;
     display: -webkit-box;
@@ -201,6 +205,7 @@ body {
     position: absolute;
     font-weight: 400;
 }
+/* Control bar - Score indicator styles */
 #score-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -228,6 +233,7 @@ body {
     width: auto;
     height: 24px;
 }
+/* Outer container is the primary container in the game. It is used to contain the main menu, level up content, questions, incorrect answer menu, game won content */
 #outer-container {
     text-align: center;
     margin: 0 auto;
@@ -249,7 +255,7 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
 }
-/* Home Screen Styles */
+/* Home Screen / Main Menu Styles */
 #home-screen {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -288,6 +294,7 @@ body {
     padding: 16px 0;
     margin: 0;
 }
+/* Home Screen - media queries  */
 @media screen and (max-width: 500px ) {
     #home-screen h1 {
         font-size: 3.3rem;
@@ -319,6 +326,7 @@ body {
         padding: 12px 0;
     }
 }
+/* Home Screen - media queries for mobile devices in landscape orientation  */
 @media  screen and (orientation: landscape) and (max-height: 750px) {
     #home-screen h1 {
         font-size: 2.4rem;
@@ -392,6 +400,7 @@ body {
         margin-top: 8px !important;
     }
 }
+/* Home screen / main menu navigation button styles */
 #main-menu-buttons-flex {
     width: 100%;
     display: -webkit-inline-box;
@@ -455,22 +464,6 @@ body {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
 }
-@-webkit-keyframes enter-player-container {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes enter-player-container {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 #input-warning {
     display: block;
     font-size: 0.8rem;
@@ -517,7 +510,24 @@ body {
     background-color: #FFFFFF60;
     border: none;
 }
-/* Question Container Animation */
+/* Enter Player Name Modal animation */
+@-webkit-keyframes enter-player-container {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes enter-player-container {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* Question Container Styling - question-inner-container is the pdarent div to the question divs */
 .question-inner-container {
     margin: 0 16px;
     opacity: 0;
@@ -530,6 +540,7 @@ body {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
 }
+/* Question Container Animation */
 @-webkit-keyframes questionInner {
     0% {
         -webkit-transform: scale(0.6) translateY(36px);
@@ -692,6 +703,7 @@ body {
             align-items: center;
 }
 /* animations during level up transition */
+/* These keyframes animate the level up div */
 @-webkit-keyframes levelup {
     0% {
         -webkit-transform: scale(0.0);
@@ -730,6 +742,7 @@ body {
     }
     
 }
+/* These keyframes rotate the levelup background image */
 @-webkit-keyframes levelup-spin {
     from {
         -webkit-transform: rotate(0deg);
@@ -750,6 +763,7 @@ body {
                 transform: rotate(360deg);
     }
 }
+/* Game Over styles */
 #game-over-cont {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -825,6 +839,7 @@ body {
         opacity: 0;
     }    
 }
+/* This animation is for game over */
 @-webkit-keyframes gameOver {
     0% {
         -webkit-transform: scale(0.7) translateY(24px);
@@ -849,7 +864,8 @@ body {
         opacity: 1.0;
     }    
 }
-/* button animations */
+/* Question answer button animations */
+/* Flashes green the corect answer */
 @-webkit-keyframes correctAnswer {
     0% {
         background-color: #00FF6260;
@@ -890,6 +906,7 @@ body {
         background-color: #00FF6290;
     }
 }
+/* Flahses red the selected incorrect answer */
 @-webkit-keyframes incorrectAnswer {
     0% {
         background-color: #F03B3B77;
@@ -933,7 +950,8 @@ body {
 /* Scores section & table */
 #scores-how-to-cont {
     width: 100%;
-    min-height: 100%;
+    max-height: 100%;
+    overflow: scroll;
     max-width: 800px;
     position: fixed;
     top: 0;
@@ -1011,6 +1029,7 @@ td {
     font-weight: 500;
     font-size: 1.3rem;
 }
+/* Clear scores button styling */
 #clear-scores {
     background-color: #ffffff20;
     border: none;
@@ -1019,7 +1038,7 @@ td {
     color: #fff;
     font-size: 1.2rem;
     width: 240px;
-    margin: 16px auto 0 auto;
+    margin: 16px auto 24px auto;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -1139,6 +1158,7 @@ td {
             animation: game-won-animation 1.2s ease-in-out 0.3s 1 forwards;
     opacity: 0;
 }
+/* Styling for image of ring of flags */
 #spinner {
     width: 100%;
     height: 100%;
@@ -1172,6 +1192,7 @@ td {
     height: 100%;
     width: auto;
 }
+/* Game complete/won animations */
 @-webkit-keyframes game-won-spinner {
     0% {
         -webkit-transform: rotate(0deg);
@@ -1261,6 +1282,7 @@ td {
         -ms-flex-pack: center;
             justify-content: center;
 }
+/* Styles for the modal if the user wishes to quit the game */
 #end-game-inner {
     width: 100%;
     margin: 0 16px;

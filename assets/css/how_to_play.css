@@ -1,3 +1,9 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
 /* How to play styles */
 html, body {
     padding: 0;
@@ -6,6 +12,8 @@ html, body {
 body {
     font-family: 'Elza', 'Arial', sans-serif;
     color: #ffffff;
+    background: -webkit-gradient(linear, left bottom, left top, from(rgb(44, 0, 62)), to(rgb(1, 21, 49)));
+    background: -o-linear-gradient(bottom, rgb(44, 0, 62) 0%, rgb(1, 21, 49) 100%);
     background: linear-gradient(0deg, rgb(44, 0, 62) 0%, rgb(1, 21, 49) 100%);
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,34 +36,36 @@ p {
     margin: 0;
     padding: 8px 0;
 }
+/* Header styles */
 header {
     width: 100%;
     max-width: 1200px;
     margin: 20px auto;
     text-align: center;
     padding: 0 24px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     position: relative;
 }
-section {
-    box-sizing: border-box;
+/* Article styles */
+article {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     width: 100%;
     max-width: 1200px;
     margin: 16px auto 40px auto;
-    padding: 0 16px;
+    padding: 0 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
-#tagline {
-    font-family: objektiv-mk3, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    padding: 8px 0 0 0;
-    display: block;
-}
+/* Navigation styles */
 #back-button {
     height: 32px;
     width: 32px;
@@ -65,20 +75,31 @@ section {
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left: 16px;
+    left: 24px;
     top: 6px;
     margin: auto;
     cursor: pointer;
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 #back-button:hover {
-    transform: translateX(-4px);
+    -webkit-transform: translateX(-4px);
+        -ms-transform: translateX(-4px);
+            transform: translateX(-4px);
 }
+/* Image container and image */
 #game-images {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 #game-images img {
     width: 300px;
