@@ -77,7 +77,7 @@ All CSS files have passed through the W3C validator.
 
 | File | Validator Result | Screenshot |
 |---|---|---|
-|style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![style.css](testing_assets/jigsaw_style.css)|
+|style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![style.css](testing_assets/jigsaw_style.png|
 |how_to_play_style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fhow_to_play.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![how_to_play.css](testing_assets/jigsaw_how_to_play.png)|
 
 
@@ -106,13 +106,51 @@ Notes
 
 - **Main Menu Screen**
 
+| Device | Screenshot |
+|---|---|
+| iPhone SE 2 (375 x 667) | ![iphone SE 2](testing_assets/responsive_screenshots/se_main_menu.png)|
+| Nexus 7 Tablet (600 x 960) | ![Nexus 7](testing_assets/responsive_screenshots/nexus_main_menu.png) |
+| Laptop MDPI (1200 x 800) | ![Laptop MDPI](testing_assets/responsive_screenshots/midi_main_menu.png) |
+
+- **Question Type 1**
 
 | Device | Screenshot |
 |---|---|
-| iPhone SE 2 (375 x 667) | <img src="readme_assets/testing_images/iphone_index.jpeg" width="200px" height="auto">|
-| Nexus 7 Tablet (600 x 960) | <img src="readme_assets/testing_images/nexus_index.jpeg" width="200px" height="auto"> |
-| Laptop MDPI (1280 x 800) | <img src="readme_assets/testing_images/laptop_index.jpeg" width="200px" height="auto"> |
+| iPhone SE 2 (375 x 667) | ![iphone SE 2](testing_assets/responsive_screenshots/se_q1.png)|
+| Nexus 7 Tablet (600 x 960) | ![Nexus 7](testing_assets/responsive_screenshots/nexus_q1.png) |
+| Laptop MDPI (1200 x 800) | ![Laptop MDPI](testing_assets/responsive_screenshots/midi_q1.png) |
 
+- **Question Type 2**
+
+| Device | Screenshot |
+|---|---|
+| iPhone SE 2 (375 x 667) | ![iphone SE 2](testing_assets/responsive_screenshots/se_q2.png)|
+| Nexus 7 Tablet (600 x 960) | ![Nexus 7](testing_assets/responsive_screenshots/nexus_q2.png) |
+| Laptop MDPI (1200 x 800) | ![Laptop MDPI](testing_assets/responsive_screenshots/midi_q2.png) |
+
+- **Game Over**
+
+| Device | Screenshot |
+|---|---|
+| iPhone SE 2 (375 x 667) | ![iphone SE 2](testing_assets/responsive_screenshots/se_game_over.png)|
+| Nexus 7 Tablet (600 x 960) | ![Nexus 7](testing_assets/responsive_screenshots/nexus_game_over.png) |
+| Laptop MDPI (1200 x 800) | ![Laptop MDPI](testing_assets/responsive_screenshots/midi_game_over.png) |
+
+- **How to Play**
+
+| Device | Screenshot |
+|---|---|
+| iPhone SE 2 (375 x 667) | ![iphone SE 2](testing_assets/responsive_screenshots/se_how_to_play.png)|
+| Nexus 7 Tablet (600 x 960) | ![Nexus 7](testing_assets/responsive_screenshots/nexus_how_to_play.png) |
+| Laptop MDPI (1200 x 800) | ![Laptop MDPI](testing_assets/responsive_screenshots/midi_how_to_play.png) |
+
+- **Scores**
+
+| Device | Screenshot |
+|---|---|
+| iPhone SE 2 (375 x 667) | ![iphone SE 2](testing_assets/responsive_screenshots/se_scores.png)|
+| Nexus 7 Tablet (600 x 960) | ![Nexus 7](testing_assets/responsive_screenshots/nexus_scores.png) |
+| Laptop MDPI (1200 x 800) | ![Laptop MDPI](testing_assets/responsive_screenshots/midi_scores.png) |
 
 ## User Story Testing (if you have user stories from the README)
     if so, just copy/paste your user stories here, and then provide a screenshot of each from the finished site, usually this is a combo of UserStory+Feature screenshot
