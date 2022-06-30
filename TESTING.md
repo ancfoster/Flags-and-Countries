@@ -46,6 +46,22 @@
 |![Safari](testing_assets/safari.png)|![](testing_assets/browser_screenshots/questionB_safari.png)|
 |![Firefox](testing_assets/firefox.png)|![](testing_assets/browser_screenshots/questionB_firefox.png)|
 
+- **Game Over**
+
+| Browser | Screenshot |
+|---|---|
+|![Chrome](testing_assets/chrome.png)|![](testing_assets/browser_screenshots/game_over_chrome.png)|
+|![Safari](testing_assets/safari.png)|![](testing_assets/browser_screenshots/game_over_safari.png)|
+|![Firefox](testing_assets/firefox.png)|![](testing_assets/browser_screenshots/game_over_firefox.png)|
+
+- **How to Play**
+
+| Browser | Screenshot |
+|---|---|
+|![Chrome](testing_assets/chrome.png)|![](testing_assets/browser_screenshots/how_to_play_chrome.png)|
+|![Safari](testing_assets/safari.png)|![](testing_assets/browser_screenshots/how_to_play_safari.png)|
+|![Firefox](testing_assets/firefox.png)|![](testing_assets/browser_screenshots/how_to_play_firefox.png)|
+
 ## Code Validation
 
 #### W3C HTML Validator
@@ -53,16 +69,16 @@ All HTML files have passed through the W3C validator.
 
 | File | Validator Result | Screenshot |
 |---|---|---|
-|index.html|[Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Findex.html)|![index.html](readme_assets/testing_images/index.png)|
-|how_to_play.html|[Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fhow_to_play.html)|![accomodation.html](readme_assets/testing_images/booking_js.png "Scripts JS")|
+|index.html|[Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Findex.html)|![index.html](testing_assets/index_html.png)|
+|how_to_play.html|[Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fhow_to_play.html)|![how_to_play.html](testing_assets/how_to_play_html.png)|
 
 #### W3C CSS Validator
 All CSS files have passed through the W3C validator.
 
 | File | Validator Result | Screenshot |
 |---|---|---|
-|style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2FMotu-Lani%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![styles.css](readme_assets/testing_images/style.png)|
-|how_to_play_style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2FMotu-Lani%2Fassets%2Fcss%2Fhome_styles.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![how_to_play.css](readme_assets/testing_images/home_styles.png)|
+|style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![style.css](testing_assets/jigsaw_style.css)|
+|how_to_play_style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fhow_to_play.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![how_to_play.css](testing_assets/jigsaw_how_to_play.png)|
 
 
 #### JSHint 
@@ -70,7 +86,7 @@ All JavaScript code was analysed with [JSHint](https://jshint.com)
 
 | File | Screenshot |
 |---|---|
-|script.js|![srcipt.js](testing_assets/scripts_js.png)|
+|script.js|![script.js](testing_assets/script_js.png)|
 |questions.js|![questions.js](testing_assets/questions_js.png)|
 |how_to_play.js|![how_to_play.js](testing_assets/how_to_play_js.png)|
 
