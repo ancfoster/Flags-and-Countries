@@ -70,8 +70,21 @@ All JavaScript code was analysed with [JSHint](https://jshint.com)
 
 | File | Screenshot |
 |---|---|
-|script.js|![Srcipts.js](readme_assets/testing_images/scripts_js.png "Scripts JS")|
-|questions.js|![Booking.js](readme_assets/testing_images/booking_js.png "Scripts JS")|
+|script.js|![srcipt.js](testing_assets/scripts_js.png)|
+|questions.js|![questions.js](testing_assets/questions_js.png)|
+|how_to_play.js|![how_to_play.js](testing_assets/how_to_play_js.png)|
+
+Notes
+- The undefined variables in script.js are defined in questions.js
+- The variable `questions` that is declared in questions.js is used in script.js
+  
+
+## Lighthouse Score
+| File | Screenshot |
+|---|---|
+|index.html|![](testing_assets/index_lighthouse.png)|
+|how_to_play.html|![](testing_assets/how_to_play_lighthouse.png)|
+
 
 ## Responsiveness
 
