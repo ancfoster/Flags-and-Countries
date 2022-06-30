@@ -23,16 +23,16 @@ body.addEventListener("load", mainMenuLoad());
 // Adds the main menu interface and event listeners out outerContainer
 function mainMenuLoad() {
     outerContainer.innerHTML = `
-    <div id="home-screen">
+    <section id="home-screen">
        <h1>Flags &<br>Countries</h1>
        <h2>The Geography Game</h2>
        <img src="assets/images/globe.png">
-       <div id="main-menu-buttons-flex">
+       <nav id="main-menu-buttons-flex">
         <button type="button" id="main-play">Play</button>
         <button type="button" id="main-scores">Scores</button>
         <button type="button" id="main-how-to-play">How to Play</button>
-       </div>
-   </div> `;
+       </nav>
+   </section> `;
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
    document.getElementById("main-scores").addEventListener("click", loadScoresUI);
    document.getElementById("main-how-to-play").addEventListener("click", function() {
@@ -52,14 +52,14 @@ function enterPlayerContainer() {
     gradientControl(0);
     checkLocalStorage();
     outerContainer.innerHTML = `
-    <div id="enter-player-container">
+    <section id="enter-player-container">
         <form>
            <label>Enter player name:</label>
            <input type="text" id="player-name-input" placeholder="Enter your name" value="${playerName}" maxlength="15">
            <span id="input-warning"></span>
            <button type="button" id="enter-player-name-button">Start Game</button>
        </form>
-    </div>
+    </section>
     `;
     document.getElementById("enter-player-name-button").addEventListener("click", checkPlayerName);
     document.addEventListener("keydown", function() {
@@ -225,7 +225,7 @@ function questionType1() {
             break;
     }
     outerContainer.innerHTML = `
-    <div id="typeA-container" class="question-inner-container">
+    <section id="typeA-container" class="question-inner-container">
         <form class="typeA-question-form">
             <img class="typeA-flag" src="assets/images/flags/${questionImagePath}">
             <span class="typeA-question-heading">This is the flag of . . .</span>
@@ -239,7 +239,7 @@ function questionType1() {
                 ${button3Text}
             </button>
         </form>
-    </div>
+    </section>
     `;
     // This section of the function determines which button corresponds with which answer. This allows for the correct answer to be assigned to a different button randomly for each question.
     document.getElementById("buttonAnswer1").addEventListener("click", function() {
@@ -280,7 +280,7 @@ function questionType2() {
             break;
     }
     outerContainer.innerHTML = `
-    <div id="typeB-container" class="question-inner-container">
+    <section id="typeB-container" class="question-inner-container">
         <form class="typeB-question-form">
             <span class="typeB-question-heading">What is the flag of <br>${questionCountryName}?</span>
             <button type='button' id="buttonAnswer1" value="A">
@@ -293,7 +293,7 @@ function questionType2() {
                 <img alt="Flag C" src="assets/images/flags/${button3Flag}">
             </button>
         </form>
-    </div>
+    </section>
     `;
     document.getElementById("buttonAnswer1").addEventListener("click", function() {
         answerSelected = 1;
@@ -450,10 +450,10 @@ function gameOver() {
         localStorage.setItem("highScore", score);
         outerContainer.innerHTML = `
         <div id="game-over-cont">
-        <span id="game-over-text">Game Over!</span>
-        <span id="game-over-scored">You scored: ${score} points</span>
-        <button type="button" id="game-over-play-again">Play Again</button>
-        <button type="button" id="game-over-main-menu">Main Menu</button>
+            <span id="game-over-text">Game Over!</span>
+            <span id="game-over-scored">You scored: ${score} points</span>
+            <button type="button" id="game-over-play-again">Play Again</button>
+            <button type="button" id="game-over-main-menu">Main Menu</button>
         </div>
         `;
     }
@@ -462,11 +462,11 @@ function gameOver() {
         saveScore();
         outerContainer.innerHTML = `
         <div id="game-over-cont">
-        <span id="game-over-text">Game Over!</span>
-        <span id="game-over-scored">You scored: ${score} points</span>
-        <span id="game-over-scored">Current high score: ${highScore} points</span>
-        <button type="button" id="game-over-play-again">Play Again</button>
-        <button type="button" id="game-over-main-menu">Main Menu</button>
+            <span id="game-over-text">Game Over!</span>
+            <span id="game-over-scored">You scored: ${score} points</span>
+            <span id="game-over-scored">Current high score: ${highScore} points</span>
+            <button type="button" id="game-over-play-again">Play Again</button>
+            <button type="button" id="game-over-main-menu">Main Menu</button>
         </div>
         `;
     }
@@ -525,10 +525,10 @@ function noScoresUI() {
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
     newScoresUI.innerHTML = `
-    <div id="scores-top-row">
+    <headerid="scores-top-row">
         <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
         <span id="scores-heading">Scores</span>
-    </div>
+    </header>
     <div id="score-statement">No scores to show.</div>    
     `; 
 }
@@ -541,12 +541,12 @@ function createScoreTableUI() {
     newScoresUI.id = 'scores-how-to-cont';
     body.appendChild(newScoresUI);
     newScoresUI.innerHTML = `
-    <div id="scores-top-row">
+    <header id="scores-top-row">
         <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
         <span id="scores-heading">Scores</span>
-    </div>
+    </header>
     <div id="score-statement"><span>${lsHighPlayer}</span> has the highest score of <span>${lsHighScore}</span> points.</div>
-    <table id="score-table">
+        <table id="score-table">
         <tr>
             <th>Player</th>
             <th>Points</th>
