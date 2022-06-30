@@ -11,8 +11,8 @@ Flags & Countries is an interactive responsive geography quiz game. Its purpose 
 #### User Stories
 - As a user I would like to improve my knowledge of world flags.
 - As a user I wish to improve my students' geography knowledge in a fun way.  
-
-#### Wireframes
+- As a user I would to see my previous game scores so I can track my progress as I play the game.
+- As a user I want to practice my knowledge of flags on multiple devices including smartphones.
 
 #### Game Design
 ##### Game elements
@@ -108,11 +108,14 @@ Adobe Fonts:
 
 ### Features Left to Implement
 - Autosave and saving game progress. If a user leaves the website in the middle of a game their progress will have been saved to local storage.
+- The time taken for a user to complete the game will also be recorded, allowing for ranking of the quickest games played. This will add another competitive elemtn to the game.
 - Global scoreboard that ranks users on how many questions they answered and how quickly.
 
 ## Technologies Used
 
 - HTML 5
+	- Local Storage
+		- The game uses local storage for storing the list of scores, top scorer and player name.
 - CSS
 - JavaScript
 
@@ -163,6 +166,8 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 ### Media
 
 All flag images were obtained from Wikipedia.
+
+- In the project flag files have the naming format 001.png 002.png etc. This is deliberate, so as to prevent cheating by a user trying to determine the answer by looking at 
 
 [Globe Image](https://www.turbosquid.com/3d-models/3d-cartoon-world-earth/1054676)
 
