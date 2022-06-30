@@ -26,7 +26,7 @@ function mainMenuLoad() {
     <section id="home-screen">
        <h1>Flags &<br>Countries</h1>
        <h2>The Geography Game</h2>
-       <img src="assets/images/globe.png">
+       <img src="assets/images/globe.png" alt="Picture of globe">
        <nav id="main-menu-buttons-flex">
         <button type="button" id="main-play">Play</button>
         <button type="button" id="main-scores">Scores</button>
