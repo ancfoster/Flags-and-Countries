@@ -470,7 +470,6 @@ function gameOver() {
         </div>
         `;
     }
-    document.getElementById("control-bar").remove(); 
     document.getElementById("game-over-play-again").addEventListener("click", function() {
         enterPlayerContainer(); 
     });
