@@ -49,6 +49,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
 }
+/*Control bar central cont is the div containing the level status and score status UI elements */
 #control-bar-central-cont {
     width: calc(100% - 108px); /* 108px is the total width of the first and last control bar elements */
     height: 52px;
@@ -63,7 +64,7 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
 }
-/* COntrol bar - Mute toggle button sttyles */
+/* Control bar - Mute toggle button sttyles */
 #mute-container {
     width: 56px;
     display: -webkit-box;
@@ -76,6 +77,7 @@ body {
         -ms-flex-pack: end;
             justify-content: flex-end;
 }
+/* Mute button styles */
 #mute-btn {
     width: 40px;
     height: 40px;
@@ -99,7 +101,7 @@ body {
     transition: 0.4s;
     opacity: 0.75;
 }
-/* Control bar - End game styles (1st element in control bar) */
+/* Control bar - End game styles button (arrow UI button in control bar) */
 #end-button-cont {
     width: 56px;
 }
@@ -133,6 +135,7 @@ body {
             flex-direction: row;
     border-right: 1px solid #fff;
 }
+/* The level ring UI element consists of two different rings.  */
 #level-ring-container {
     width: 52px;
     height: 52px;
@@ -156,10 +159,12 @@ body {
     stroke: #ffffff36;
     fill: transparent;
 }
+/* Level progress ring is an SVG circle that sits on top of another SVG circle - level-ring-background */
 #level-progress-ring {
     stroke: #ffffff;
     stroke-width: 4;
     fill: transparent;
+    /*  The stroke dash offset sets the outer ring to the 0% position, this is then updated via JavaScript */
     -webkit-transition: 0.35s stroke-dashoffset;
     -o-transition: 0.35s stroke-dashoffset;
     transition: 0.35s stroke-dashoffset;
@@ -172,6 +177,7 @@ body {
     stroke-dasharray: 150.796, 150.796;
     stroke-dashoffset: 150.796;
 }
+/* This is the syling for the word 'Level" in the control bar */
 #level-label {
     font-size: 20px;
     color: #ffffff;
@@ -186,6 +192,7 @@ body {
             align-items: center;
     margin-right: 8px;
 }
+/* This is the number in the middle of the level indicator UI element */
 #level-top {
     width: 100%;
     height: 52px;
@@ -229,6 +236,7 @@ body {
     margin-right: 8px;
     line-height: 36px;
 }
+/* Styles for the diamond shape score icon */
 #score-container img {
     width: auto;
     height: 24px;
@@ -633,7 +641,7 @@ body {
     font-weight: 400;
     padding: 1.6rem 0 1.0rem 0;
 }
-/* level up styles */
+/* Level up styles */
 #level-up-container {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -1010,6 +1018,7 @@ body {
 #score-statement span {
     font-weight: 500;
 }
+/* Sxore table styles */
 #score-table {
     width: 100%;
     max-width: 400px;
@@ -1193,6 +1202,7 @@ td {
     width: auto;
 }
 /* Game complete/won animations */
+/* Rotates the circle containing different flags image */
 @-webkit-keyframes game-won-spinner {
     0% {
         -webkit-transform: rotate(0deg);
@@ -1213,6 +1223,7 @@ td {
                 transform: rotate(360deg);
     }
 }
+/* Fades and zooms in images and game won text */
 @-webkit-keyframes game-won-animation {
     0% {
         opacity: 0;
@@ -1261,6 +1272,7 @@ td {
                 transform: scale(1.0);
     }
 }
+/* Styles for the modal if the user wishes to quit the game */
 #end-game-modal {
     position: fixed;
     top: 0;
@@ -1282,7 +1294,7 @@ td {
         -ms-flex-pack: center;
             justify-content: center;
 }
-/* Styles for the modal if the user wishes to quit the game */
+/* Inner layout of end game modal */
 #end-game-inner {
     width: 100%;
     margin: 0 16px;
