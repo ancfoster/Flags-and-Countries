@@ -34,9 +34,11 @@ function mainMenuLoad() {
        </nav>
    </section> `;
    document.getElementById("main-play").addEventListener("click", enterPlayerContainer);
-   document.getElementById("main-scores").addEventListener("click", loadScoresUI);
+   document.getElementById("main-scores").addEventListener("click", function(){
+   window.location.href='scores.html';
+   });
    document.getElementById("main-how-to-play").addEventListener("click", function() {
-    window.location.href='how_to_play.html';
+   window.location.href='how_to_play.html';
    });
 }
 // This function generates a UI where the user can enter or modify a player name. 
@@ -349,7 +351,7 @@ function questionModalRemove() {
 // When a qustion has been answered correctly this function checks whether to initiate the level up animation or if the user has completed the game.
 function checkLevel () {
     switch(score) {
-        case 7: case 14: case 28: case 35: case 42: case 49: case 56: case 63:
+        case 7: case 14: case 21: case 28: case 35: case 42: case 49: case 56: case 63:
             levelUp();
             break;
         case 70:
