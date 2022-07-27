@@ -70,9 +70,9 @@
 
 | Browser | Screenshot |
 |---|---|
-|![Chrome](testing_assets/chrome.png)|![](testing_assets/browser_screenshots/scores_chrome.png)|
-|![Safari](testing_assets/safari.png)|![](testing_assets/browser_screenshots/scores_safari.png)|
-|![Firefox](testing_assets/firefox.png)|![](testing_assets/browser_screenshots/scores.png)|
+|![Chrome](testing_assets/chrome.png)|![](testing_assets/browser_screenshots/chrome_scores.png)|
+|![Safari](testing_assets/safari.png)|![](testing_assets/browser_screenshots/safari_scores.png)|
+|![Firefox](testing_assets/firefox.png)|![](testing_assets/browser_screenshots/firefox_scores.png)|
 
 
 ## Code Validation
@@ -116,6 +116,7 @@ Notes
 |---|---|
 |index.html|![](testing_assets/index_lighthouse.png)|
 |how_to_play.html|![](testing_assets/how_to_play_lighthouse.png)|
+|scores.html|![](testing_assets/scores_lighthouse.png)|
 
 
 ## Responsiveness
