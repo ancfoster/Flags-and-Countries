@@ -20,6 +20,10 @@
 		
 		![Confirmation Modal](testing_assets/confirmation_dialog.jpeg) 
 
+- A modal confirmation dialog was added to the scores page. This is a good UX practice, implementing defensive design and confirming an irreversible choice with the user. This was added after user testing feedback.
+	
+		![Delete Confirmation](testing_assets/delete_confirmation.png) 
+
 ## Browser Compatibility
 
 - **Main Menu**
@@ -62,6 +66,15 @@
 |![Safari](testing_assets/safari.png)|![](testing_assets/browser_screenshots/how_to_play_safari.png)|
 |![Firefox](testing_assets/firefox.png)|![](testing_assets/browser_screenshots/how_to_play_firefox.png)|
 
+- **Scores**
+
+| Browser | Screenshot |
+|---|---|
+|![Chrome](testing_assets/chrome.png)|![](testing_assets/browser_screenshots/scores_chrome.png)|
+|![Safari](testing_assets/safari.png)|![](testing_assets/browser_screenshots/scores_safari.png)|
+|![Firefox](testing_assets/firefox.png)|![](testing_assets/browser_screenshots/scores.png)|
+
+
 ## Code Validation
 
 #### W3C HTML Validator
@@ -71,14 +84,16 @@ All HTML files have passed through the W3C validator.
 |---|---|---|
 |index.html|[Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Findex.html)|![index.html](testing_assets/index_html.png)|
 |how_to_play.html|[Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fhow_to_play.html)|![how_to_play.html](testing_assets/how_to_play_html.png)|
+|scores.html|[Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fscores.html)|![scores.html](testing_assets/scores_html.png)|
 
 #### W3C CSS Validator
 All CSS files have passed through the W3C validator.
 
 | File | Validator Result | Screenshot |
 |---|---|---|
-|style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![style.css](testing_assets/jigsaw_style.png|
-|how_to_play_style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fhow_to_play.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![how_to_play.css](testing_assets/jigsaw_how_to_play.png)|
+|style.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![style.css](testing_assets/jigsaw_style.png)|
+|how_to_play.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fhow_to_play.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![how_to_play.css](testing_assets/jigsaw_how_to_play.png)|
+|scores.css|[Link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fancfoster.github.io%2Fflags-and-countries%2Fassets%2Fcss%2Fscores.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)|![scores.css](testing_assets/jigsaw_scores.png)|
 
 
 #### JSHint 
@@ -89,6 +104,7 @@ All JavaScript code was analysed with [JSHint](https://jshint.com)
 |script.js|![script.js](testing_assets/script_js.png)|
 |questions.js|![questions.js](testing_assets/questions_js.png)|
 |how_to_play.js|![how_to_play.js](testing_assets/how_to_play_js.png)|
+|scores.js|![scores.js](testing_assets/scores_js.png)|
 
 Notes
 - The undefined variables in script.js are defined in questions.js
