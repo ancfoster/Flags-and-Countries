@@ -2,7 +2,7 @@
 
 //Global Scope Variables
 let body = document.body;
-scoresCont = document.getElementById("scores-cont");
+let scoresCont = document.getElementById("scores-cont");
 //When back button clicked takes user back to main menu
 document.getElementById("back-button").addEventListener("click", function() {
 window.location.href='index.html';
@@ -28,7 +28,6 @@ function noScoresUI() {
 function createScoreTableUI() {
     let lsHighScore = localStorage.getItem('highScore');
     let lsHighPlayer = localStorage.getItem('highScorePlayer');
-    let newScoresUI = document.createElement('div');
     // Blank table ready to receieve rows with data from the populateScoresTable function.
     scoresCont.innerHTML = `
     <div id="score-statement"><span>${lsHighPlayer}</span> has the highest score of <span>${lsHighScore}</span> points.</div>
