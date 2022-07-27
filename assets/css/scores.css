@@ -47,8 +47,8 @@ header {
             box-sizing: border-box;
     position: relative;
 }
-/* Article styles */
-article {
+/* Scores Cont Styles - this is the parent container for the scores table or no scores UI */
+main {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     width: 100%;
@@ -88,20 +88,50 @@ article {
         -ms-transform: translateX(-4px);
             transform: translateX(-4px);
 }
-/* Image container and image */
-#game-images {
+
+#score-statement {
+    margin: 16px auto;
+    max-width: 90%;
+    text-align: center;
+    font-size: 1.4rem;
+}
+#score-statement span {
+    font-weight: 500;
+}
+/* Score table styles */
+#score-table {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    max-width: 400px;
+    margin: 0 auto;
 }
-#game-images img {
-    width: 300px;
-    margin: 12px;
+#score-table tr {
+    width: 50%;
+    text-align: left;
 }
+td {
+    padding: 4px 8px;
+    font-size: 1.0rem;
+    font-weight: 400;
+}
+#score-table th {
+    padding: 8px;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+/* Clear scores button styling */
+#clear-scores {
+    background-color: #ffffff20;
+    border: none;
+    border-radius: 1.7rem;
+    padding: 16px;
+    color: #fff;
+    font-size: 1.2rem;
+    width: 240px;
+    margin: 16px auto 24px auto;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+#clear-scores:hover {
+    background-color: #FFFFFF40;
+}
+
