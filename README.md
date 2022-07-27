@@ -2,7 +2,7 @@
 
 ![Flags & Countries](readme_assets/responsive.png)
 
-Flags & Countries is an interactive responsive geography quiz game. Its purpose is to test a player's knowledge of the flags of the countries of the world and help them improve their knowledge. 
+Flags & Countries is an interactive responsive geography quiz game. Its purpose is to test a player's knowledge of the flags of the countries of the world and help them improve their flag and geography knowledge. 
 
 ## Design Process
 
@@ -44,7 +44,7 @@ Flags & Countries is an interactive responsive geography quiz game. Its purpose 
 #### Typography
 
 Adobe Fonts:
-- [Objektiv](https://fonts.adobe.com/fonts/objektiv) is the fotn used for the H1 and H2 tags
+- [Objektiv](https://fonts.adobe.com/fonts/objektiv) is the font used for the H1 and H2 tags
 
 - [Elza](https://fonts.adobe.com/fonts/elza) is used for all other elements containing text. I picked it for its modern minimalism and readability
 
@@ -74,10 +74,11 @@ Adobe Fonts:
 
 	![Score Counter](readme_assets/score_counter.png)
 
-- Score modal
-	- This shows the current high score and which plauer achieved the score. 
-	- There is also a table showing all of the save scores and which player achieved them.
+- Scores page
+	- This shows the current high score and which player achieved the score. 
+	- There is also a table showing all of the saved scores and which player achieved them.
 	- There is a button to clear the scores.
+	- I have followed good UX practice by displaying a confirmation dialog before the user deletes their scores.
 
 	![Scores Table](readme_assets/scores_table.png)
 - Answer buttons
@@ -104,7 +105,7 @@ Adobe Fonts:
 		- Correct Answer
 		- Incorrect / game over
 		- Level Up
-		- Game won
+		- Game complete
 
 ### Features Left to Implement
 - Autosave and saving game progress. If a user leaves the website in the middle of a game their progress will have been saved to local storage.
@@ -114,10 +115,10 @@ Adobe Fonts:
 ## Technologies Used
 
 - HTML 5
-	- Local Storage
-		- The game uses local storage for storing the list of scores, top scorer and player name.
 - CSS
 - JavaScript
+	- Local Storage
+		- The game uses local storage for storing the list of scores, top scorer and player name.
 
 ## Tools used
 - For writing code I used [Visual Studio Code](https://code.visualstudio.com/) which I also for Git commands and pushing to GitHub
@@ -148,7 +149,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 
 In order to make a local copy of this project, you can clone it. In your IDE Terminal, type the following command to clone my repository:
 
-`git clone https://github.com/ancfoster/Motu-Lani.git`
+`git clone https://github.com/ancfoster/Flags-and-Countries.git`
 
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
@@ -165,15 +166,18 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ### Media
 
-All flag images were obtained from Wikipedia.
+All flag images were obtained from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page).
 
-- In the project flag files have the naming format 001.png 002.png etc. This is deliberate, so as to prevent cheating by a user trying to determine the answer by looking at 
+- e.g 1 - [Flag of France](https://en.wikipedia.org/wiki/France#/media/File:Flag_of_France.svg)
+- e.g 2 - [Flag of Mexico](https://en.wikipedia.org/wiki/Mexico#/media/File:Flag_of_Mexico.svg)
 
-[Globe Image](https://www.turbosquid.com/3d-models/3d-cartoon-world-earth/1054676)
+	- In the project flag files have the naming format 001.png 002.png etc. This is deliberate, so as to prevent cheating by a user trying to determine the answer by looking at 
 
-[Speaker Icons](https://iconmonstr.com/sound-thin-svg/)
+- [Globe Image](https://www.turbosquid.com/3d-models/3d-cartoon-world-earth/1054676) by Alexander Design
 
-[Back chevron](https://fonts.google.com/icons)
+- [Speaker Icons](https://iconmonstr.com/sound-thin-svg/) from Icon Monstr
+
+- [Back button chevron](https://fonts.google.com/icons) from Google Fonts
 
 
 #### Sound Effects
