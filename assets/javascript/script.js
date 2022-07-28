@@ -488,71 +488,7 @@ function saveScore() {
 function outerContainerClear (){
     outerContainer.innerHTML = "";
 }
-// Loads the main UI for the scores modal.
-function loadScoresUI() {
-    if(localStorage.getItem("scores") == null) {
-        noScoresUI();
-    }
-    else {
-        createScoreTableUI();
-        document.getElementById("clear-scores").addEventListener("click", clearScores);
-    }
-    document.getElementById("back-button").addEventListener("click", returnMainMenu);
-}
-// If there are no saved score in local storage this function generates the necessary HTML
-function noScoresUI() {
-    outerContainer.innerHTML = "";
-    let newScoresUI = document.createElement('div');
-    newScoresUI.id = 'scores-how-to-cont';
-    body.appendChild(newScoresUI);
-    newScoresUI.innerHTML = `
-    <header id="scores-top-row">
-        <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
-        <span id="scores-heading">Scores</span>
-    </header>
-    <div id="score-statement">No scores to show.</div>    
-    `; 
-}
-// If there are scores saved in local storage this function generates the scores UI and creates a blank table.
-function createScoreTableUI() {
-    outerContainer.innerHTML = "";
-    let lsHighScore = localStorage.getItem('highScore');
-    let lsHighPlayer = localStorage.getItem('highScorePlayer');
-    let newScoresUI = document.createElement('div');
-    newScoresUI.id = 'scores-how-to-cont';
-    body.appendChild(newScoresUI);
-    // Blank table ready to receieve rows with data from the populateScoresTable function.
-    newScoresUI.innerHTML = `
-    <header id="scores-top-row">
-        <button type="button" id="back-button" aria-label="Back to Main Menu"></button>
-        <span id="scores-heading">Scores</span>
-    </header>
-    <div id="score-statement"><span>${lsHighPlayer}</span> has the highest score of <span>${lsHighScore}</span> points.</div>
-        <table id="score-table">
-        <tr>
-            <th>Player</th>
-            <th>Points</th>
-            </tr>
-        </table>
-    <button id="clear-scores" type="button">Clear Scores</button>
-    `;
-    populateScoresTable();
-}
-// Obtains the scores and player information from localStorage in string format, converts in into an array (consisting of objects), extracts the score and player from each object and outputs as a HTML row.
-function populateScoresTable(){
-    // Local storage is just a string value, so to get the scores back into JSON the string must first be parsed
-    let arrayScores = JSON.parse(localStorage.getItem("scores"));
-    let scoreTable = document.getElementById('score-table');
-    // For each array score outputs a table row with two TDs, one containing the player name and the second the score that was achieved. 
-    for(let arrayItem = 0; arrayItem < arrayScores.length; arrayItem++) {
-        let row = (arrayScores[arrayItem]);
-        let tablePlayer = (row.player);
-        let tableScore = (row.gameScore);
-        let newRow = document.createElement('tr');
-        newRow.innerHTML =  `<td>${tablePlayer}</td><td>${tableScore}</td>`;
-        scoreTable.appendChild(newRow);
-    }
-}
+
 // This function is called when the quit game button is pressed.
 // It presents the UI asking the user to confirm their decision. If the user confirms the game is ended, otherwise the end game UI is removed. 
 function userEndGame() {
@@ -579,20 +515,6 @@ function yesEndGame() {
     outerContainer.innerHTML = "";
     document.getElementById("control-bar").remove();
     gradientControl(0);
-    mainMenuLoad();
-}
-// Clears information from localStorage (except set player name) and hides the score table.
-function clearScores(){
-    localStorage.removeItem('scores');
-    localStorage.removeItem('highScore');
-    document.getElementById('score-statement').innerHTML = "No scores to show.";
-    document.getElementById('clear-scores').remove();
-    document.getElementById('score-table').style.display='none';
-}
-// When called calls the function to reload the main menu and removed the scores UI
-function returnMainMenu() {
-    let scoresHowToCont = document.getElementById('scores-how-to-cont');
-    scoresHowToCont.remove();
     mainMenuLoad();
 }
 // Sound Functions
