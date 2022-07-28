@@ -169,12 +169,27 @@ Notes
 | Nexus 7 Tablet (600 x 960) | ![Nexus 7](testing_assets/responsive_screenshots/nexus_scores.png) |
 | Laptop MDPI (1200 x 800) | ![Laptop MDPI](testing_assets/responsive_screenshots/midi_scores.png) |
 
-## User Story Testing (if you have user stories from the README)
-    if so, just copy/paste your user stories here, and then provide a screenshot of each from the finished site, usually this is a combo of UserStory+Feature screenshot
-## Unfixed Bugs / Known Issues
+## User Story Testing
+
+- As a user I would like to improve my knowledge of world flags.
+
+	![Improving knowledge](testing_assets/user_stories/improving_knowledge.jpg)
+- As a user I wish to improve my students' geography knowledge in a fun way.  
+	![Previous game scores](testing_assets/user_stories/fun.jpg)
+- As a user I would to see my previous game scores so I can track my progress as I play the game.
+
+	![Previous game scores](testing_assets/user_stories/scores.jpg)
+
+- As a user I want to practice my knowledge of flags on multiple devices including smartphones.
+	
+	![Game on multiple screens](readme_assets/responsive.png)
+
+
+## Known bugs and issues 
 
 - In Safari on iOS/iPad OS the sound effects level_up.mp3 and incorrect_gameover.mp3 do not played when called. These work as expected on desktop Safari and in all other browsers. The sound effect correct.mp3 does play as expected on Safari for iOS/iPad OS.
 - In Firefox the following error is thrown:
+
 
 	`downloadable font: Table discarded (font-family: "elza" style:normal weight:500 stretch:100 src index:0) source: https://use.typekit.net/af/9ca581/00000000000000007735f906/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3`
 	- This is an issue caused by a bug in Firefox which is documented [here](https://bugzilla.mozilla.org/show_bug.cgi?id=1185685)
