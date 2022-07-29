@@ -173,7 +173,7 @@ All flag images were obtained from [Wikipedia](https://en.wikipedia.org/wiki/Mai
 - e.g 1 - [Flag of France](https://en.wikipedia.org/wiki/France#/media/File:Flag_of_France.svg)
 - e.g 2 - [Flag of Mexico](https://en.wikipedia.org/wiki/Mexico#/media/File:Flag_of_Mexico.svg)
 
-	- In the project flag files have the naming format 001.png 002.png etc. This is deliberate, so as to prevent cheating by a user trying to determine the answer by looking at 
+	- In the project flag files have the naming format 001.png 002.png etc as opposed to names like flag_france.png. This is deliberate, so as to prevent cheating by a user trying to determine the answer by inspecting the image file name.
 
 - [Globe Image](https://www.turbosquid.com/3d-models/3d-cartoon-world-earth/1054676) by Alexander Design
 
