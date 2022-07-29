@@ -609,6 +609,28 @@ body {
     background-color: #FFFFFF40;
     cursor: pointer;
 }
+/* Question Type A landscape media queries */
+@media screen and (orientation: landscape) and (max-height: 560px) {
+    .typeA-flag {
+        width: auto;
+        height: 60px;
+    }
+    .typeA-question-heading {
+        display: block;
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 400;
+        padding: 0.6rem 0;
+    }
+    .typeA-question-form button {
+        height: 2.6rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+    }
+    .typeA-question-form {
+        margin-top: 24px;
+    }
+}
 /* Question Type B styles */
 .typeB-question-form button img {
     width: auto;
@@ -640,6 +662,20 @@ body {
     line-height: 3rem;
     font-weight: 400;
     padding: 1.6rem 0 1.0rem 0;
+}
+/* Question Type B landscape media queries */
+@media screen and (orientation: landscape) and (max-height: 560px) {
+    .typeB-question-heading {
+        font-size: 1.3rem;
+        line-height: 1.7rem;
+    }
+    .typeB-question-form button img {
+        height: 2.2rem;
+    }
+    .typeB-question-form button {
+        margin-bottom: 0.7rem;
+        height: 3.5rem;
+    }
 }
 /* Level up styles */
 #level-up-container {
