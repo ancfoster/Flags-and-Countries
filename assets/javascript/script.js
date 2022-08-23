@@ -113,9 +113,10 @@ function displayControlBar() {
             <div id="level-ring-container">
                 <div id="level-top">${currentLevel}</div>
                 <svg width="52px" height="52px">
+                    <circle id="level-progress-ring" cx="26px" cy="26px" r="24px"/>
                     <circle id="level-ring-background" cx="26px" cy="26px" r="24px">
-                    <circle id="level-progress-ring" cx="26px" cy="26px" r="24px">
                 </svg>
+
             </div>
         </div>
         <div id="score-container">
@@ -321,7 +322,7 @@ function checkAnswer() {
         score = score + 1;
         currentQuestion++;
         updateScoreText();
-        progressRingPercent = progressRingPercent + 14;
+        progressRingPercent += 14;
         updateProgressRing(progressRingPercent);
         // Flashes the correct answer button green
         document.getElementById('buttonAnswer' + answerSelected).style.animation = 'correctAnswer 1.1s ease-in-out';
